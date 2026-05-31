@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>尾崎叶佳 | コーチング・コンパッションマインドトレーニング</title>
+  <meta name="description" content="安心して本音を話せる場を。コーチング・コンパッションマインドトレーニングを提供する尾崎叶佳のサービスサイトです。" />
+  <style>
+    /* ===== リセット・基本設定 ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Hiragino Mincho ProN', 'Yu Mincho', 'YuMincho', Georgia, serif;
+      background-color: #FAF8F5;
+      color: #2C2C2C;
+      font-size: 16px;
+      line-height: 1.85;
+      -webkit-font-smoothing: antialiased;
+    }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+
+    /* ===== カラー変数 ===== */
+    :root {
+      --bg:        #FAF8F5;
+      --bg-sub:    #F2EDE8;
+      --bg-dark:   #EDE6DF;
+      --text:      #2C2C2C;
+      --text-sub:  #6B6058;
+      --accent:    #7A6355;
+      --accent-dk: #4A3728;
+      --line-clr:  #D6CBC2;
+      --white:     #FFFFFF;
+    }
+
+    /* ===== ユーティリティ ===== */
+    .container { width: 90%; max-width: 720px; margin: 0 auto; }
+    .section { padding: 80px 0; }
+    .section-alt { background-color: var(--bg-sub); }
+    .section-title {
+      font-size: clamp(1.2rem, 4vw, 1.5rem);
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      color: var(--accent-dk);
+      margin-bottom: 40px;
+      text-align: center;
+    }
+    .section-title::after {
+      content: '';
+      display: block;
+      width: 32px;
+      height: 1px;
+      background: var(--accent);
+      margin: 16px auto 0;
+    }
+    .lead {
+      font-size: clamp(0.9rem, 3vw, 1rem);
+      color: var(--text-sub);
+      line-height: 2;
+    }
+
+    /* ===== ナビゲーション ===== */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(250, 248, 245, 0.95);
+      backdrop-filter: blur(6px);
+      border-bottom: 1px solid var(--line-clr);
+      padding: 16px 0;
+    }
+    .nav-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 90%;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+    .nav-logo {
+      font-size: 0.9rem;
+      letter-spacing: 0.15em;
+      color: var(--accent-dk);
+    }
+    .nav-cta {
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
+      color: var(--white);
+      background: var(--accent-dk);
+      padding: 9px 18px;
+      border-radius: 2px;
+      transition: background 0.2s;
+    }
+    .nav-cta:hover { background: var(--accent); }
+
+    /* ===== ボタン ===== */
+    .btn-primary {
+      display: inline-block;
+      background: var(--accent-dk);
+      color: var(--white);
+      font-size: 0.92rem;
+      letter-spacing: 0.1em;
+      padding: 16px 36px;
+      border-radius: 2px;
+      transition: background 0.2s, transform 0.15s;
+      cursor: pointer;
+      border: none;
+    }
+    .btn-primary:hover { background: var(--accent); transform: translateY(-1px); }
+
+    .btn-secondary {
+      display: inline-block;
+      color: var(--accent-dk);
+      font-size: 0.88rem;
+      letter-spacing: 0.1em;
+      padding: 14px 32px;
+      border-radius: 2px;
+      border: 1px solid var(--accent);
+      transition: background 0.2s;
+      cursor: pointer;
+    }
+    .btn-secondary:hover { background: var(--bg-dark); }
+
+    .btn-text {
+      display: inline-block;
+      font-size: 0.85rem;
+      letter-spacing: 0.1em;
+      color: var(--accent);
+      border-bottom: 1px solid var(--line-clr);
+      padding-bottom: 2px;
+      transition: color 0.2s;
+    }
+    .btn-text:hover { color: var(--accent-dk); }
+
+    .cta-group {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+      margin-top: 40px;
+    }
+
+    /* ===== FV ===== */
+    .fv {
+      min-height: 92vh;
+      display: flex;
+      align-items: center;
+      background-color: var(--bg);
+      position: relative;
+      overflow: hidden;
+      padding: 100px 0 80px;
+    }
+    .fv::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(135deg, rgba(242,237,232,0.6) 0%, transparent 60%),
+        radial-gradient(ellipse at 80% 50%, rgba(196,176,154,0.15) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .fv-inner {
+      position: relative;
+      z-index: 1;
+      width: 90%;
+      max-width: 720px;
+      margin: 0 auto;
+    }
+    .fv-eyebrow {
+      font-size: 0.78rem;
+      letter-spacing: 0.25em;
+      color: var(--accent);
+      margin-bottom: 28px;
+    }
+    .fv-heading {
+      font-size: clamp(1.45rem, 5.5vw, 2.1rem);
+      font-weight: 400;
+      line-height: 1.75;
+      letter-spacing: 0.06em;
+      color: var(--accent-dk);
+      margin-bottom: 32px;
+    }
+    .fv-body {
+      font-size: clamp(0.88rem, 3vw, 0.96rem);
+      color: var(--text-sub);
+      line-height: 2.1;
+      max-width: 540px;
+    }
+    .fv-body p + p { margin-top: 20px; }
+
+    /* ===== FOR WHOM ===== */
+    .for-whom-list {
+      list-style: none;
+      display: grid;
+      gap: 16px;
+    }
+    .for-whom-list li {
+      background: var(--white);
+      border-left: 2px solid var(--accent);
+      padding: 18px 22px;
+      font-size: 0.92rem;
+      color: var(--text);
+      letter-spacing: 0.04em;
+      line-height: 1.7;
+    }
+
+    /* ===== 無料相談 ===== */
+    .consult-box {
+      background: var(--white);
+      border: 1px solid var(--line-clr);
+      padding: 48px 40px;
+      text-align: center;
+    }
+    .consult-box .lead { margin: 24px 0 32px; text-align: left; }
+    .note-small {
+      font-size: 0.78rem;
+      color: var(--text-sub);
+      margin-top: 20px;
+      letter-spacing: 0.05em;
+    }
+
+    /* ===== サービス ===== */
+    .service-cards {
+      display: grid;
+      gap: 32px;
+    }
+    .service-card {
+      background: var(--white);
+      border: 1px solid var(--line-clr);
+      padding: 40px 36px;
+    }
+    .service-card-label {
+      font-size: 0.72rem;
+      letter-spacing: 0.25em;
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+    .service-card-title {
+      font-size: clamp(1.1rem, 3.5vw, 1.3rem);
+      font-weight: 400;
+      color: var(--accent-dk);
+      letter-spacing: 0.08em;
+      margin-bottom: 24px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--line-clr);
+    }
+    .service-card p { font-size: 0.9rem; color: var(--text); line-height: 2; }
+    .service-card p + p { margin-top: 16px; }
+    .service-recommend {
+      margin-top: 24px;
+      padding: 16px 20px;
+      background: var(--bg-sub);
+      font-size: 0.85rem;
+      color: var(--text-sub);
+      line-height: 1.75;
+    }
+    .price-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 28px;
+      font-size: 0.85rem;
+    }
+    .price-table th, .price-table td {
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--line-clr);
+      text-align: left;
+    }
+    .price-table th {
+      background: var(--bg-sub);
+      color: var(--text-sub);
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      width: 42%;
+    }
+    .price-table td { color: var(--text); }
+    .price-total {
+      margin-top: 12px;
+      font-size: 0.88rem;
+      color: var(--accent-dk);
+      text-align: right;
+      letter-spacing: 0.05em;
+    }
+    .service-note {
+      margin-top: 32px;
+      padding-top: 28px;
+      border-top: 1px solid var(--line-clr);
+      font-size: 0.84rem;
+      color: var(--text-sub);
+      line-height: 1.85;
+      text-align: center;
+    }
+
+    /* ===== 変化 ===== */
+    .changes-list {
+      list-style: none;
+      display: grid;
+      gap: 14px;
+    }
+    .changes-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      font-size: 0.92rem;
+      color: var(--text);
+      line-height: 1.75;
+    }
+    .changes-list li::before {
+      content: '';
+      flex-shrink: 0;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      margin-top: 9px;
+    }
+    .changes-note {
+      margin-top: 24px;
+      font-size: 0.76rem;
+      color: var(--text-sub);
+      letter-spacing: 0.05em;
+    }
+    .voice-link-box {
+      margin-top: 36px;
+      text-align: center;
+      padding: 28px;
+      border: 1px solid var(--line-clr);
+      background: var(--white);
+    }
+    .voice-link-box p {
+      font-size: 0.88rem;
+      color: var(--text-sub);
+      margin-bottom: 16px;
+    }
+
+    /* ===== 大切にしていること ===== */
+    .values-block {
+      text-align: center;
+    }
+    .values-quote {
+      font-size: clamp(1rem, 3.5vw, 1.15rem);
+      color: var(--accent-dk);
+      letter-spacing: 0.1em;
+      line-height: 2;
+      margin-bottom: 36px;
+    }
+    .values-quote em {
+      font-style: normal;
+      display: block;
+      font-size: 1.05em;
+      margin-bottom: 8px;
+    }
+    .values-body {
+      font-size: 0.9rem;
+      color: var(--text-sub);
+      line-height: 2.1;
+      max-width: 520px;
+      margin: 0 auto;
+    }
+    .values-pillars {
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      margin: 32px 0;
+      flex-wrap: wrap;
+    }
+    .values-pillars span {
+      font-size: 0.85rem;
+      letter-spacing: 0.18em;
+      color: var(--accent);
+      border-bottom: 1px solid var(--line-clr);
+      padding-bottom: 4px;
+    }
+
+    /* ===== プロフィール ===== */
+    .profile-inner {
+      display: grid;
+      gap: 40px;
+      align-items: start;
+    }
+    @media (min-width: 640px) {
+      .profile-inner { grid-template-columns: 200px 1fr; }
+    }
+    .profile-img-wrap {
+      width: 100%;
+      max-width: 200px;
+      margin: 0 auto;
+    }
+    .profile-img-placeholder {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      background: var(--bg-dark);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-sub);
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
+    }
+    .profile-name {
+      font-size: 1.2rem;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      color: var(--accent-dk);
+      margin-bottom: 6px;
+    }
+    .profile-name-en {
+      font-size: 0.78rem;
+      letter-spacing: 0.2em;
+      color: var(--accent);
+      margin-bottom: 24px;
+    }
+    .profile-body {
+      font-size: 0.88rem;
+      color: var(--text);
+      line-height: 2;
+    }
+    .profile-body p + p { margin-top: 16px; }
+
+    /* ===== 申込みの流れ ===== */
+    .flow-steps {
+      display: grid;
+      gap: 0;
+    }
+    .flow-step {
+      display: grid;
+      grid-template-columns: 56px 1fr;
+      gap: 20px;
+      padding: 28px 0;
+      border-bottom: 1px solid var(--line-clr);
+      align-items: start;
+    }
+    .flow-step:last-child { border-bottom: none; }
+    .flow-num {
+      font-size: 1.6rem;
+      color: var(--line-clr);
+      font-family: Georgia, serif;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+    }
+    .flow-text-title {
+      font-size: 0.95rem;
+      font-weight: 400;
+      color: var(--accent-dk);
+      letter-spacing: 0.06em;
+      margin-bottom: 6px;
+    }
+    .flow-text-body {
+      font-size: 0.84rem;
+      color: var(--text-sub);
+      line-height: 1.8;
+    }
+    .flow-note {
+      margin-top: 28px;
+      font-size: 0.82rem;
+      color: var(--text-sub);
+      text-align: center;
+      letter-spacing: 0.05em;
+    }
+
+    /* ===== FAQ ===== */
+    .faq-list { display: grid; gap: 2px; }
+    .faq-item {
+      border: 1px solid var(--line-clr);
+      background: var(--white);
+    }
+    .faq-question {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 24px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      text-align: left;
+      font-family: inherit;
+      font-size: 0.9rem;
+      color: var(--text);
+      letter-spacing: 0.04em;
+      line-height: 1.6;
+      gap: 16px;
+      transition: background 0.15s;
+    }
+    .faq-question:hover { background: var(--bg-sub); }
+    .faq-icon {
+      flex-shrink: 0;
+      width: 18px;
+      height: 18px;
+      position: relative;
+      color: var(--accent);
+    }
+    .faq-icon::before,
+    .faq-icon::after {
+      content: '';
+      position: absolute;
+      background: currentColor;
+      border-radius: 1px;
+      transition: transform 0.25s, opacity 0.25s;
+    }
+    .faq-icon::before { width: 100%; height: 1px; top: 50%; transform: translateY(-50%); }
+    .faq-icon::after  { width: 1px; height: 100%; left: 50%; transform: translateX(-50%); }
+    .faq-item.open .faq-icon::after { transform: translateX(-50%) rotate(90deg); opacity: 0; }
+    .faq-answer {
+      display: none;
+      padding: 0 24px 24px;
+      font-size: 0.86rem;
+      color: var(--text-sub);
+      line-height: 2;
+    }
+    .faq-item.open .faq-answer { display: block; }
+    .faq-contact {
+      margin-top: 28px;
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--text-sub);
+    }
+
+    /* ===== 最終CTA ===== */
+    .final-cta {
+      background: var(--accent-dk);
+      padding: 96px 0;
+      text-align: center;
+    }
+    .final-cta .section-title { color: var(--white); }
+    .final-cta .section-title::after { background: rgba(255,255,255,0.3); }
+    .final-cta .lead { color: rgba(255,255,255,0.75); text-align: center; }
+    .final-cta .btn-primary {
+      background: var(--white);
+      color: var(--accent-dk);
+    }
+    .final-cta .btn-primary:hover { background: var(--bg); }
+    .final-cta .btn-secondary {
+      color: var(--white);
+      border-color: rgba(255,255,255,0.4);
+    }
+    .final-cta .btn-secondary:hover { background: rgba(255,255,255,0.08); }
+
+    /* ===== フッター ===== */
+    .footer {
+      background: #2C2420;
+      color: rgba(255,255,255,0.55);
+      padding: 48px 0;
+      text-align: center;
+    }
+    .footer-name {
+      font-size: 0.88rem;
+      letter-spacing: 0.15em;
+      color: rgba(255,255,255,0.8);
+      margin-bottom: 20px;
+    }
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 24px;
+      margin-bottom: 28px;
+    }
+    .footer-links a {
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
+      color: rgba(255,255,255,0.5);
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: rgba(255,255,255,0.9); }
+    .footer-copy {
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+    }
+
+    /* ===== レスポンシブ ===== */
+    @media (min-width: 640px) {
+      .cta-group { flex-direction: row; justify-content: center; }
+      .consult-box { padding: 56px 56px; }
+      .service-card { padding: 48px 44px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ナビゲーション -->
+<nav class="nav">
+  <div class="nav-inner">
+    <span class="nav-logo">Yasuka Ozaki / Coaching &amp; Compassion Mind Training</span>
+    <a href="https://app.spirinc.com/t/9g8PvP-1j2xig9Huw7uFf/as/3m2UXmmjzcyxeRCcWBkao/confirm"
+       target="_blank" rel="noopener" class="nav-cta">無料30分相談を予約する</a>
+  </div>
+</nav>
+
+<!-- FV -->
+<section class="fv">
+  <div class="fv-inner">
+    <p class="fv-eyebrow">Coaching &amp; Compassion Mind Training</p>
+    <h1 class="fv-heading">
+      美しさを保って生きるには、<br>
+      髪や身体と同じように、<br>
+      「心」もメンテナンスがいる。
+    </h1>
+    <div class="fv-body">
+      <p>
+        安心して話せる場にいることで、<br>
+        自分でも気づいていなかった本音が、<br>
+        少しずつ言葉になっていく。
+      </p>
+      <p>
+        「え、私こんなことを考えていたんだ」<br>
+        と驚かれることもあります。
+      </p>
+      <p>
+        自分の本音を大切にしながら、<br>
+        周囲とも調和して、健やかに生きていくための<br>
+        対話を提供しています。
+      </p>
+    </div>
+    <div class="cta-group">
+      <a href="https://app.spirinc.com/t/9g8PvP-1j2xig9Huw7uFf/as/3m2UXmmjzcyxeRCcWBkao/confirm"
+         target="_blank" rel="noopener" class="btn-primary">無料30分相談を予約する</a>
+      <a href="https://lin.ee/JXQjw1f"
+         target="_blank" rel="noopener" class="btn-secondary">公式LINEに登録する</a>
+    </div>
+  </div>
+</section>
+
+<!-- こんな方へ -->
+<section class="section section-alt">
+  <div class="container">
+    <h2 class="section-title">こんな方へ</h2>
+    <ul class="for-whom-list">
+      <li>頭の中が整理できず、モヤモヤしている</li>
+      <li>気を遣いすぎて疲れてしまう</li>
+      <li>本音がわからなくなっている</li>
+      <li>パートナーや上司・部下との関わり方を変えたい</li>
+    </ul>
+  </div>
+</section>
+
+<!-- 無料相談 -->
+<section class="section">
+  <div class="container">
+    <h2 class="section-title">まずは、無料30分相談から</h2>
+    <div class="consult-box">
+      <p class="lead">
+        まず一度話して、頭の中を整理したい方へ。<br><br>
+        現在のお悩みやモヤモヤを伺いながら、<br>
+        「自分は何に困っているのか」を一緒に可視化します。<br><br>
+        相談後には、<br>
+        「次にどうすればいいか」が明確になることを目指します。
+      </p>
+      <a href="https://app.spirinc.com/t/9g8PvP-1j2xig9Huw7uFf/as/3m2UXmmjzcyxeRCcWBkao/confirm"
+         target="_blank" rel="noopener" class="btn-primary">無料30分相談を予約する</a>
+      <p class="note-small">無理な勧誘はありません。まずは安心してお話しください。</p>
+    </div>
+  </div>
+</section>
+
+<!-- サービス -->
+<section class="section section-alt">
+  <div class="container">
+    <h2 class="section-title">提供しているサービス</h2>
+    <div class="service-cards">
+
+      <!-- コーチング -->
+      <div class="service-card">
+        <p class="service-card-label">SERVICE 01</p>
+        <h3 class="service-card-title">コーチング</h3>
+        <p>
+          無自覚に繰り返している思考や行動、<br>
+          人との関わり方の「習慣」に気づき、<br>
+          日常の中で少しずつ変えていくための継続セッションです。
+        </p>
+        <p>
+          セッションで得た気づきは、その場ですべて完結するものではありません。<br>
+          日々の行動や人間関係の中で変化が現れ、<br>
+          次回の振り返りで「以前とは違う自分」に気づくことがあります。
+        </p>
+        <div class="service-recommend">
+          気づくだけで終わらせず、<br>
+          人間関係や行動など、日常の中に現れる変化を起こしていきたい方へ。
+        </div>
+        <table class="price-table">
+          <tr><th>時間</th><td>1回 60分</td></tr>
+          <tr><th>頻度</th><td>月1回</td></tr>
+          <tr><th>期間</th><td>3か月 または 6か月</td></tr>
+          <tr><th>料金</th><td>11,000円 / 月（税込）</td></tr>
+        </table>
+      </div>
+
+      <!-- CMT -->
+      <div class="service-card">
+        <p class="service-card-label">SERVICE 02</p>
+        <h3 class="service-card-title">コンパッションマインドトレーニング</h3>
+        <p>
+          恐れや不安の感情に振り回されすぎないための、<br>
+          心の土台を育てる実践型のトレーニングです。
+        </p>
+        <p>
+          自由に話しながら進めるセッションよりも、<br>
+          まずは知識を学び、実践しながら身につけていく方法が合う方におすすめしています。<br><br>
+          自分への理解と信頼を育み、<br>
+          現実の中で一歩を踏み出しやすくなることを目指します。
+        </p>
+        <table class="price-table">
+          <tr><th>時間</th><td>1回 90分</td></tr>
+          <tr><th>回数</th><td>全12回</td></tr>
+          <tr><th>期間</th><td>4〜5か月</td></tr>
+          <tr><th>料金</th><td>5,000円 / 回（税込）</td></tr>
+        </table>
+        <p class="price-total">合計 60,000円（税込）</p>
+        <div class="service-note">
+          コーチングとコンパッションマインドトレーニングの違いを<br>
+          事前に確認したい方はこちらから。<br><br>
+          <a href="https://www.canva.com/design/DAG5NI6jdh8/L40xAcLxJIz8AG103NgMxQ/view?utm_content=DAG5NI6jdh8&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h0132ba249a"
+             target="_blank" rel="noopener" class="btn-text">詳細を見る →</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- 変化の声 -->
+<section class="section">
+  <div class="container">
+    <h2 class="section-title">セッションを受けた方の変化</h2>
+    <ul class="changes-list">
+      <li>部下に感情的に怒ることが大きく減った</li>
+      <li>パートナーに嫌味っぽく文句を言うことをやめられた</li>
+      <li>気を遣いすぎて疲れることが減った</li>
+      <li>自信がつき、やりたいことに挑戦できるようになった</li>
+    </ul>
+    <p class="changes-note">変化の感じ方や時期には個人差があります。</p>
+    <div class="voice-link-box">
+      <p>より詳しい感想・体験談はこちらからご覧いただけます。</p>
+      <a href="https://note.com/baru_coach/n/n9c52cf46ed50"
+         target="_blank" rel="noopener" class="btn-text">お客様の声を読む →</a>
+    </div>
+  </div>
+</section>
+
+<!-- 大切にしていること -->
+<section class="section section-alt">
+  <div class="container">
+    <h2 class="section-title">安心して本音を話せる場を</h2>
+    <div class="values-block">
+      <p class="values-quote">
+        「叶佳さんだから話せた」<br>
+        そう言っていただくことがあります。
+      </p>
+      <div class="values-pillars">
+        <span>決めつけない</span>
+        <span>急かさない</span>
+        <span>否定しない</span>
+      </div>
+      <p class="values-body">
+        問いを投げ、感情を整理し、<br>
+        まだ言葉にならない感覚を一緒に見つけていく。<br><br>
+        安心して本音を話せる空間を、<br>
+        何より大切にしています。
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- プロフィール -->
+<section class="section">
+  <div class="container">
+    <h2 class="section-title">プロフィール</h2>
+    <div class="profile-inner">
+      <div class="profile-img-wrap">
+        <img src="profile.jpg" alt="尾崎叶佳" style="width:100%; aspect-ratio:1/1; object-fit:cover; object-position:center top; filter:brightness(1.03) contrast(1.02) saturate(0.92);">
+      </div>
+      <div>
+        <p class="profile-name">尾崎 叶佳</p>
+        <p class="profile-name-en">Yasuka Ozaki</p>
+        <div class="profile-body">
+          <p>
+            商社・IT企業で営業事務、総務、経理などのバックオフィス業務を経験。<br>
+            現在はSaaS設定代行業務に携わりながら、<br>
+            フリーランスとしてコーチングと<br>
+            コンパッションマインドトレーニングを提供しています。
+          </p>
+          <p>
+            自身も長く「本音がわからない」状態を経験してきたからこそ、<br>
+            葛藤や痛みを抱える方が、<br>
+            安心して自分の内側に触れられる時間を大切にしています。
+          </p>
+          <p>有償セッション実績100時間超。</p>
+        </div>
+        <div style="margin-top: 28px;">
+          <a href="https://note.com/baru_coach/n/neea467bb3138"
+             target="_blank" rel="noopener" class="btn-text">詳しいプロフィールを見る →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 申込みの流れ -->
+<section class="section section-alt">
+  <div class="container">
+    <h2 class="section-title">お申込みの流れ</h2>
+    <div class="flow-steps">
+      <div class="flow-step">
+        <span class="flow-num">01</span>
+        <div>
+          <p class="flow-text-title">無料30分相談を予約</p>
+          <p class="flow-text-body">予約フォームから日程をお選びください。</p>
+        </div>
+      </div>
+      <div class="flow-step">
+        <span class="flow-num">02</span>
+        <div>
+          <p class="flow-text-title">現在のお悩みや状況をヒアリング</p>
+          <p class="flow-text-body">Zoomにて、今感じていることやモヤモヤをお聞きします。</p>
+        </div>
+      </div>
+      <div class="flow-step">
+        <span class="flow-num">03</span>
+        <div>
+          <p class="flow-text-title">合いそうなサービスをご提案</p>
+          <p class="flow-text-body">必要に応じて、ご状況に合ったサービスをご案内します。</p>
+        </div>
+      </div>
+      <div class="flow-step">
+        <span class="flow-num">04</span>
+        <div>
+          <p class="flow-text-title">ご希望の場合のみ、お申込み・開始</p>
+          <p class="flow-text-body">ご納得いただいた上でお申込みください。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section">
+  <div class="container">
+    <h2 class="section-title">よくあるご質問</h2>
+    <div class="faq-list">
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          何を話せばいいかわかりません。
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-answer">
+          事前準備は必要ありません。現在気になっていることや、うまく言葉にならないモヤモヤも含めて、安心してお話しください。
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          本当に変われるか不安です。
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-answer">
+          変化のスピードや現れ方は人それぞれです。無理のないペースで、今の状態に合わせて進めていきます。
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          セッションの提供方法は？
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-answer">
+          Zoomにてご提供します。
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          支払い方法は？
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-answer">
+          銀行振込またはカード払いに対応しています。カード払いでは決済手数料を加算させていただきますが、分割払いも可能です。
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          受講・セッションが適切でない場合はありますか？
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-answer">
+          年齢・性別を問わずお申込みいただけます。ただし、心療内科等に通院中の方は、専門医の許可を得た上でお申込みください。
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          無料相談後、必ず継続サービスに申し込む必要がありますか？
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-answer">
+          いいえ。無料相談後に無理な勧誘はありません。お話しした上で、必要だと感じた場合のみご検討ください。
+        </div>
+      </div>
+
+    </div>
+    <p class="faq-contact">
+      そのほか、ご質問があれば
+      <a href="https://lin.ee/JXQjw1f" target="_blank" rel="noopener" class="btn-text">公式LINE</a>
+      よりお問い合わせください。
+    </p>
+  </div>
+</section>
+
+<!-- 最終CTA -->
+<section class="final-cta">
+  <div class="container">
+    <h2 class="section-title">
+      まずは、今抱えていることを<br>
+      話してみませんか。
+    </h2>
+    <p class="lead">
+      頭の中で絡まっていることも、<br>
+      まだ言葉にならない気持ちも、<br>
+      安心してお持ちください。
+    </p>
+    <div class="cta-group">
+      <a href="https://app.spirinc.com/t/9g8PvP-1j2xig9Huw7uFf/as/3m2UXmmjzcyxeRCcWBkao/confirm"
+         target="_blank" rel="noopener" class="btn-primary">無料30分相談を予約する</a>
+      <a href="https://lin.ee/JXQjw1f"
+         target="_blank" rel="noopener" class="btn-secondary">公式LINEに登録する</a>
+    </div>
+  </div>
+</section>
+
+<!-- フッター -->
+<footer class="footer">
+  <div class="container">
+    <p class="footer-name">尾崎 叶佳</p>
+    <nav class="footer-links">
+      <a href="https://lin.ee/JXQjw1f" target="_blank" rel="noopener">公式LINE</a>
+      <a href="https://note.com/baru_coach/n/neea467bb3138" target="_blank" rel="noopener">プロフィール</a>
+      <a href="https://www.canva.com/design/DAG5NI6jdh8/L40xAcLxJIz8AG103NgMxQ/view?utm_content=DAG5NI6jdh8&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h0132ba249a" target="_blank" rel="noopener">CMT詳細資料</a>
+    </nav>
+    <p class="footer-copy">&copy; 2026 Yasuka Ozaki. All rights reserved.</p>
+  </div>
+</footer>
+
+<!-- FAQ アコーディオン -->
+<script>
+  document.querySelectorAll('.faq-question').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.faq-item');
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => {
+        i.classList.remove('open');
+        i.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+      });
+      if (!isOpen) {
+        item.classList.add('open');
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
