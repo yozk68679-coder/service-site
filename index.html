@@ -16,6 +16,8 @@
       font-size: 16px;
       line-height: 1.85;
       -webkit-font-smoothing: antialiased;
+      line-break: strict;
+      overflow-wrap: anywhere;
     }
     img { max-width: 100%; display: block; }
     a { color: inherit; text-decoration: none; }
@@ -92,6 +94,9 @@
       transition: background 0.2s;
     }
     .nav-cta:hover { background: var(--accent); }
+    @media (max-width: 639px) {
+      .nav-cta { display: none; }
+    }
 
     /* ===== ボタン ===== */
     .btn-primary {
@@ -259,12 +264,14 @@
       border-collapse: collapse;
       margin-top: 28px;
       font-size: 0.85rem;
+      border-top: 1px solid var(--line-clr);
     }
     .price-table th, .price-table td {
       padding: 12px 16px;
       border-bottom: 1px solid var(--line-clr);
       text-align: left;
     }
+    .price-table td { white-space: nowrap; }
     .price-table th {
       background: var(--bg-sub);
       color: var(--text-sub);
@@ -580,7 +587,7 @@
 <!-- ナビゲーション -->
 <nav class="nav">
   <div class="nav-inner">
-    <span class="nav-logo">Yasuka Ozaki / Coaching &amp; Compassion Mind Training</span>
+    <span class="nav-logo">Coaching &amp; Compassion Mind Training</span>
     <a href="https://app.spirinc.com/t/9g8PvP-1j2xig9Huw7uFf/as/3m2UXmmjzcyxeRCcWBkao/confirm"
        target="_blank" rel="noopener" class="nav-cta">無料30分相談を予約する</a>
   </div>
@@ -589,7 +596,6 @@
 <!-- FV -->
 <section class="fv">
   <div class="fv-inner">
-    <p class="fv-eyebrow">Coaching &amp; Compassion Mind Training</p>
     <h1 class="fv-heading">
       美しさを保って生きるには、<br>
       髪や身体と同じように、<br>
@@ -640,14 +646,12 @@
     <div class="consult-box">
       <p class="lead">
         まず一度話して、頭の中を整理したい方へ。<br><br>
-        現在のお悩みやモヤモヤを伺いながら、<br>
-        「自分は何に困っているのか」を一緒に可視化します。<br><br>
-        相談後には、<br>
-        「次にどうすればいいか」が明確になることを目指します。
+        現在のお悩みやモヤモヤを伺いながら、「自分は何に困っているのか」を一緒に可視化します。<br><br>
+        相談後には、「次にどうすればいいか」が明確になることを目指します。
       </p>
       <a href="https://app.spirinc.com/t/9g8PvP-1j2xig9Huw7uFf/as/3m2UXmmjzcyxeRCcWBkao/confirm"
          target="_blank" rel="noopener" class="btn-primary">無料30分相談を予約する</a>
-      <p class="note-small">無理な勧誘はありません。まずは安心してお話しください。</p>
+      <p class="note-small">無理な勧誘はありません。<br>まずは安心してお話しください。</p>
     </div>
   </div>
 </section>
@@ -663,19 +667,11 @@
         <p class="service-card-label">SERVICE 01</p>
         <h3 class="service-card-title">コーチング</h3>
         <p>
-          無自覚に繰り返している思考や行動、<br>
-          人との関わり方の「習慣」に気づき、<br>
-          日常の中で少しずつ変えていくための継続セッションです。
+          無自覚に繰り返している思考や行動、人との関わり方の「習慣」に気づき、日常の中で少しずつ変えていくための継続セッションです。
         </p>
         <p>
-          セッションで得た気づきは、その場ですべて完結するものではありません。<br>
-          日々の行動や人間関係の中で変化が現れ、<br>
-          次回の振り返りで「以前とは違う自分」に気づくことがあります。
+          セッションで得た気づきは、その場ですべて完結するものではありません。日々の行動や人間関係の中で変化が現れ、次回の振り返りで「以前とは違う自分」に気づくことがあります。
         </p>
-        <div class="service-recommend">
-          気づくだけで終わらせず、<br>
-          人間関係や行動など、日常の中に現れる変化を起こしていきたい方へ。
-        </div>
         <table class="price-table">
           <tr><th>時間</th><td>1回 60分</td></tr>
           <tr><th>頻度</th><td>月1回</td></tr>
@@ -689,14 +685,11 @@
         <p class="service-card-label">SERVICE 02</p>
         <h3 class="service-card-title">コンパッションマインドトレーニング</h3>
         <p>
-          恐れや不安の感情に振り回されすぎないための、<br>
-          心の土台を育てる実践型のトレーニングです。
+          恐れや不安の感情に振り回されすぎないための、心の土台を育てる実践型のトレーニングです。
         </p>
         <p>
-          自由に話しながら進めるセッションよりも、<br>
-          まずは知識を学び、実践しながら身につけていく方法が合う方におすすめしています。<br><br>
-          自分への理解と信頼を育み、<br>
-          現実の中で一歩を踏み出しやすくなることを目指します。
+          自由に話しながら進めるセッションよりも、まずは知識を学び、実践しながら身につけていく方法が合う方におすすめしています。<br><br>
+          自分への理解と信頼を育み、現実の中で一歩を踏み出しやすくなることを目指します。
         </p>
         <table class="price-table">
           <tr><th>時間</th><td>1回 90分</td></tr>
@@ -930,7 +923,6 @@
 <!-- フッター -->
 <footer class="footer">
   <div class="container">
-    <p class="footer-name">尾崎 叶佳</p>
     <nav class="footer-links">
       <a href="https://lin.ee/JXQjw1f" target="_blank" rel="noopener">公式LINE</a>
       <a href="https://note.com/baru_coach/n/neea467bb3138" target="_blank" rel="noopener">プロフィール</a>
