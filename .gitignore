@@ -1,0 +1,13 @@
+# Claude Code設定
+.claude/
+
+# プレビュー・作業用一時ファイル
+preview_*.html
+
+# OS
+.DS_Store
+Thumbs.db
+
+# エディタ
+.vscode/
+*.swp
