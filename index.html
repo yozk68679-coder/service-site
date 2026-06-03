@@ -170,12 +170,13 @@
       transform: translateY(12px);
       transition: opacity 0.35s ease, transform 0.35s ease;
     }
-    .overlay.open .overlay-nav li:nth-child(1) { opacity: 1; transform: none; transition-delay: 0.1s; }
+    .overlay.open .overlay-nav li:nth-child(1) { opacity: 1; transform: none; transition-delay: 0.10s; }
     .overlay.open .overlay-nav li:nth-child(2) { opacity: 1; transform: none; transition-delay: 0.16s; }
     .overlay.open .overlay-nav li:nth-child(3) { opacity: 1; transform: none; transition-delay: 0.22s; }
     .overlay.open .overlay-nav li:nth-child(4) { opacity: 1; transform: none; transition-delay: 0.28s; }
     .overlay.open .overlay-nav li:nth-child(5) { opacity: 1; transform: none; transition-delay: 0.34s; }
     .overlay.open .overlay-nav li:nth-child(6) { opacity: 1; transform: none; transition-delay: 0.40s; }
+    .overlay.open .overlay-nav li:nth-child(7) { opacity: 1; transform: none; transition-delay: 0.46s; }
     .overlay-nav a {
       font-size: clamp(1rem, 4vw, 1.3rem);
       letter-spacing: 0.22em;
@@ -791,6 +792,7 @@
     <span></span><span></span>
   </button>
   <ul class="overlay-nav">
+    <li><a href="#ai-dialog" onclick="closeMenu()">人との対話<span class="overlay-sub">Dialogue</span></a></li>
     <li><a href="#for-whom" onclick="closeMenu()">こんな方へ<span class="overlay-sub">For You</span></a></li>
     <li><a href="#consult" onclick="closeMenu()">無料30分相談<span class="overlay-sub">Free Consultation</span></a></li>
     <li><a href="#service" onclick="closeMenu()">サービス<span class="overlay-sub">Service</span></a></li>
@@ -853,7 +855,7 @@
 </section>
 
 <!-- AIと人の対話 -->
-<section class="section">
+<section id="ai-dialog" class="section">
   <div class="container">
     <h2 class="section-title">人との対話だから、起きる変化</h2>
     <div class="ai-dialog-intro">
