@@ -3,6 +3,7 @@
 
 # プレビュー・作業用一時ファイル
 preview_*.html
+_memo.md
 
 # OS
 .DS_Store
