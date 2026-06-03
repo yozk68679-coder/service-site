@@ -675,6 +675,49 @@
       color: var(--text-sub);
     }
 
+    /* ===== AIと人の対話セクション ===== */
+    .ai-dialog-intro {
+      max-width: 520px;
+      margin: 0 auto 40px;
+      text-align: center;
+      font-size: clamp(0.88rem, 1.4vw, 0.96rem);
+      color: var(--text-sub);
+      line-height: 2.1;
+    }
+    .ai-dialog-intro p + p { margin-top: 20px; }
+    .ai-dialog-accordion {
+      max-width: 520px;
+      margin: 0 auto;
+      border-top: 1px solid var(--line-clr);
+      border-bottom: 1px solid var(--line-clr);
+    }
+    .ai-dialog-toggle {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 18px 0;
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 0.8rem;
+      letter-spacing: 0.15em;
+      color: var(--accent);
+      transition: color 0.2s;
+    }
+    .ai-dialog-toggle:hover { color: var(--accent-dk); }
+    .ai-dialog-accordion.open .ai-dialog-toggle { display: none; }
+    .ai-dialog-body {
+      display: none;
+      padding: 8px 0 36px;
+      font-size: clamp(0.85rem, 1.3vw, 0.9rem);
+      color: var(--text-sub);
+      line-height: 2.1;
+    }
+    .ai-dialog-body p + p { margin-top: 20px; }
+    .ai-dialog-accordion.open .ai-dialog-body { display: block; }
+
     /* ===== 最終CTA ===== */
     .final-cta {
       background: var(--accent-dk);
@@ -803,6 +846,45 @@
            target="_blank" rel="noopener" class="btn-primary">無料30分相談を予約する</a>
         <a href="https://lin.ee/JXQjw1f"
            target="_blank" rel="noopener" class="btn-secondary">公式LINEに登録する</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AIと人の対話 -->
+<section class="section">
+  <div class="container">
+    <h2 class="section-title">人との対話だから、起きる変化</h2>
+    <div class="ai-dialog-intro">
+      <p>AIで思考や感情を整理することはできても、<br>
+      自分の中で閉じたままでは、変化は起きにくい。</p>
+      <p>人と人の関係の中にあるからこそ、起きる変化があります。</p>
+    </div>
+    <div class="ai-dialog-accordion" id="aiDialogAccordion">
+      <button class="ai-dialog-toggle" aria-expanded="false" id="aiDialogToggle">
+        もう少し読む
+      </button>
+      <div class="ai-dialog-body">
+        <p>最近では、AIに話しかけながら、<br>
+        考えや気持ちを整理する方も増えています。</p>
+        <p>私自身も、AIを思考の整理に活用しています。<br>
+        言葉にならなかった気持ちが整理されたり、<br>
+        自分では見えなかった視点に気づけたりすることもあります。</p>
+        <p>けれど、人が変わっていくときに必要なのは、<br>
+        理解や言語化だけではないのかもしれません。</p>
+        <p>人前で、強くいなくていいと感じること。<br>
+        うまく説明できない違和感を、急がずに見てもらうこと。<br>
+        隠していた弱さや揺らぎを、否定されずに受け取ってもらうこと。</p>
+        <p>そうした関係の体験の中で、<br>
+        これまでひとりで抱えてきたものが、<br>
+        少しずつほどけていくことがあります。</p>
+        <p>私は、語られた言葉だけでなく、<br>
+        声の揺れや沈黙、ふと表れる違和感にも耳を澄ませながら、<br>
+        あなたの内側で繰り返されているものを、共に見つめていきます。</p>
+        <p>この対話は、<br>
+        あなたを分析したり、答えを導いたりするためのものではありません。</p>
+        <p>あなたが自分自身と、<br>
+        より誠実につながり直していくための時間です。</p>
       </div>
     </div>
   </div>
@@ -1135,6 +1217,11 @@
   overlayClose.addEventListener('click', closeMenu);
   overlay.addEventListener('click', e => { if (e.target === overlay) closeMenu(); });
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu(); });
+
+  // AIと人の対話 アコーディオン
+  document.getElementById('aiDialogToggle').addEventListener('click', () => {
+    document.getElementById('aiDialogAccordion').classList.add('open');
+  });
 
   // FAQ アコーディオン
   document.querySelectorAll('.faq-question').forEach(btn => {
