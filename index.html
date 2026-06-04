@@ -139,6 +139,8 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
+      overflow-y: auto;
+      padding: 80px 20px 48px;
       opacity: 0;
       pointer-events: none;
       transition: opacity 0.4s ease;
@@ -205,23 +207,6 @@
       margin-top: 4px;
       font-family: Georgia, serif;
     }
-    .overlay-cta {
-      margin-top: 56px;
-      opacity: 0;
-      transform: translateY(12px);
-      transition: opacity 0.35s ease 0.45s, transform 0.35s ease 0.45s;
-    }
-    .overlay.open .overlay-cta { opacity: 1; transform: none; }
-    .overlay-cta a {
-      display: inline-block;
-      font-size: 0.8rem;
-      letter-spacing: 0.18em;
-      color: var(--accent-dk);
-      background: rgba(255,255,255,0.9);
-      padding: 16px 36px;
-      transition: background 0.2s;
-    }
-    .overlay-cta a:hover { background: var(--white); }
 
     /* ===== ボタン ===== */
     .btn-primary {
@@ -783,6 +768,29 @@
       font-size: 0.72rem;
       letter-spacing: 0.1em;
     }
+    .footer-icon-links {
+      display: flex;
+      justify-content: center;
+      gap: 36px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+    .footer-icon-link {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 7px;
+      color: rgba(255,255,255,0.5);
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      transition: color 0.2s;
+    }
+    .footer-icon-link:hover { color: rgba(255,255,255,0.9); }
+    .footer-icon-link svg {
+      width: 22px;
+      height: 22px;
+      fill: currentColor;
+    }
 
     /* ===== レスポンシブ ===== */
     @media (max-width: 639px) {
@@ -812,10 +820,6 @@
     <li><a href="#flow" onclick="closeMenu()">お申込みの流れ<span class="overlay-sub">Flow</span></a></li>
     <li><a href="#faq" onclick="closeMenu()">よくある質問<span class="overlay-sub">FAQ</span></a></li>
   </ul>
-  <div class="overlay-cta">
-    <a href="https://app.spirinc.com/t/9g8PvP-1j2xig9Huw7uFf/as/3m2UXmmjzcyxeRCcWBkao/confirm"
-       target="_blank" rel="noopener">無料30分相談を予約する</a>
-  </div>
 </div>
 
 <!-- ナビゲーション -->
@@ -856,11 +860,15 @@
           対話を提供しています。
         </p>
       </div>
-      <div class="cta-group" style="align-items:flex-start;">
+      <div style="display:inline-flex; flex-direction:column; margin-top:40px; align-items:stretch;">
         <a href="https://app.spirinc.com/t/9g8PvP-1j2xig9Huw7uFf/as/3m2UXmmjzcyxeRCcWBkao/confirm"
-           target="_blank" rel="noopener" class="btn-primary">無料30分相談を予約する</a>
-        <a href="https://lin.ee/JXQjw1f"
-           target="_blank" rel="noopener" class="btn-secondary">公式LINEに登録する</a>
+           target="_blank" rel="noopener" class="btn-primary"
+           style="text-align:center; letter-spacing:0.07em; padding:18px 32px;">無料30分相談を予約する</a>
+        <div style="display:flex; flex-direction:column; align-items:center; gap:5px; margin-top:20px;">
+          <p style="font-size:0.875rem; letter-spacing:0.04em; color:var(--text-sub); margin:0; text-align:center; line-height:1.8;">LINEでは、限定の読みものをお届けしています。</p>
+          <a href="https://lin.ee/JXQjw1f" target="_blank" rel="noopener" class="btn-secondary"
+             style="display:block; width:100%; text-align:center; letter-spacing:0.07em; padding:16px 32px;">LINEに登録する</a>
+        </div>
       </div>
     </div>
   </div>
@@ -873,7 +881,7 @@
     <div class="ai-dialog-intro">
       <p>AIで思考や感情を整理することはできても、<br>
       自分の中で閉じたままでは、変化は起きにくい。</p>
-      <p>人と人の関係の中にあるからこそ、起きる変化があります。</p>
+      <p>人と人だからこそ、起きる変化があります。</p>
     </div>
     <div class="ai-dialog-accordion" id="aiDialogAccordion">
       <button class="ai-dialog-toggle" aria-expanded="false" id="aiDialogToggle">
@@ -1016,7 +1024,7 @@
     <div class="values-block">
       <p class="values-quote">
         「叶佳さんだから話せた」<br>
-        そう言っていただくことがあります。
+        そう言っていただくことが多いです。
       </p>
       <div class="values-pillars">
         <span>決めつけない</span>
@@ -1198,10 +1206,25 @@
 <!-- フッター -->
 <footer class="footer">
   <div class="container">
+    <!-- アイコンリンク -->
+    <div class="footer-icon-links">
+      <a href="https://lin.ee/JXQjw1f" target="_blank" rel="noopener" class="footer-icon-link">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63h2.386c.349 0 .63.285.63.63 0 .349-.281.63-.63.63H17.61V9.863h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63.349 0 .631.285.631.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.281.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+        公式LINE
+      </a>
+      <a href="https://www.instagram.com/yasuka_coach" target="_blank" rel="noopener" class="footer-icon-link">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12c0 3.259.012 3.668.072 4.948.06 1.277.261 2.148.558 2.913a5.885 5.885 0 001.384 2.126A5.868 5.868 0 004.14 23.37c.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.012 4.947-.072c1.277-.06 2.148-.262 2.913-.558a5.898 5.898 0 002.126-1.384 5.86 5.86 0 001.384-2.126c.296-.765.499-1.636.558-2.913.06-1.28.072-1.689.072-4.948 0-3.259-.012-3.667-.072-4.947-.06-1.277-.262-2.149-.558-2.913a5.89 5.89 0 00-1.384-2.126A5.847 5.847 0 0019.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227a3.81 3.81 0 01-.899 1.382 3.744 3.744 0 01-1.38.896c-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421a3.716 3.716 0 01-1.379-.899 3.644 3.644 0 01-.9-1.38c-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405a1.441 1.441 0 01-2.88 0 1.44 1.44 0 012.88 0z"/></svg>
+        Instagram
+      </a>
+      <a href="https://note.com/baru_coach" target="_blank" rel="noopener" class="footer-icon-link">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 21V3H8C8 2 22 3 22 11V21H17V11C17 8 8 8 8 11V21Z"/></svg>
+        note
+      </a>
+    </div>
+    <!-- テキストリンク -->
     <nav class="footer-links">
-      <a href="https://lin.ee/JXQjw1f" target="_blank" rel="noopener">公式LINE</a>
       <a href="https://note.com/baru_coach/n/neea467bb3138" target="_blank" rel="noopener">プロフィール</a>
-      <a href="https://www.canva.com/design/DAG5NI6jdh8/L40xAcLxJIz8AG103NgMxQ/view?utm_content=DAG5NI6jdh8&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h0132ba249a" target="_blank" rel="noopener">CMT詳細資料</a>
+      <a href="https://www.canva.com/design/DAG5NI6jdh8/L40xAcLxJIz8AG103NgMxQ/view?utm_content=DAG5NI6jdh8&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h0132ba249a" target="_blank" rel="noopener">コーチングとCMTの違い</a>
     </nav>
     <p class="footer-copy">&copy; 2026 Yasuka Ozaki. All rights reserved.</p>
   </div>
