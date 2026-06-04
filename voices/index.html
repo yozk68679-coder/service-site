@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>お客様の声 | 尾崎叶佳 コーチング・CMT</title>
+  <meta name="description" content="実際にセッションを受けてくださった方からいただいたご感想です。" />
+  <style>
+    /* ===== リセット・基本設定 ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Hiragino Mincho ProN', 'Yu Mincho', 'YuMincho', Georgia, serif;
+      background-color: #FAFAF9;
+      color: #2C2C2C;
+      font-size: 16px;
+      line-height: 1.85;
+      -webkit-font-smoothing: antialiased;
+      line-break: strict;
+      overflow-wrap: anywhere;
+    }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+
+    /* ===== カラー変数 ===== */
+    :root {
+      --bg:        #FAFAF9;
+      --bg-sub:    #F0EFED;
+      --bg-dark:   #E0DED9;
+      --text:      #2A2A2A;
+      --text-sub:  #6A6A6A;
+      --accent:    #8C8480;
+      --accent-dk: #3C3836;
+      --gold:      #BCBAB6;
+      --line-clr:  #D8D6D2;
+      --white:     #FFFFFF;
+    }
+
+    /* ===== ユーティリティ ===== */
+    .container { width: 90%; max-width: 720px; margin: 0 auto; }
+    .section { padding: 80px 0; }
+    .section-alt { background-color: var(--bg-sub); }
+    .section-title {
+      font-size: clamp(1.2rem, 4vw, 1.5rem);
+      font-weight: 400;
+      letter-spacing: 0.18em;
+      color: var(--accent-dk);
+      margin-bottom: 56px;
+      text-align: center;
+    }
+    .section-title::after {
+      content: '';
+      display: block;
+      width: 40px;
+      height: 1px;
+      background: var(--gold);
+      margin: 20px auto 0;
+    }
+    .lead {
+      font-size: clamp(0.9rem, 3vw, 1rem);
+      color: var(--text-sub);
+      line-height: 2;
+    }
+
+    /* ===== ナビゲーション ===== */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(250, 250, 249, 0.97);
+      backdrop-filter: blur(6px);
+      border-bottom: 1px solid var(--line-clr);
+      padding: 20px 0;
+    }
+    .nav-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 90%;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+    .nav-logo {
+      font-size: 0.8rem;
+      letter-spacing: 0.2em;
+      color: var(--accent-dk);
+    }
+    .nav-back {
+      font-size: 0.78rem;
+      letter-spacing: 0.15em;
+      color: var(--accent);
+      border-bottom: 1px solid var(--line-clr);
+      padding-bottom: 2px;
+      transition: color 0.2s;
+    }
+    .nav-back:hover { color: var(--accent-dk); }
+
+    /* ===== ボタン ===== */
+    .btn-primary {
+      display: inline-block;
+      background: var(--accent-dk);
+      color: var(--white);
+      font-size: 0.88rem;
+      letter-spacing: 0.15em;
+      padding: 18px 44px;
+      border-radius: 0;
+      transition: background 0.2s, transform 0.15s;
+      cursor: pointer;
+      border: none;
+      white-space: nowrap;
+    }
+    .btn-primary:hover { background: var(--accent); transform: translateY(-1px); }
+
+    .btn-secondary {
+      display: inline-block;
+      color: var(--accent-dk);
+      font-size: 0.85rem;
+      letter-spacing: 0.15em;
+      padding: 16px 36px;
+      border-radius: 0;
+      border: 1px solid var(--accent-dk);
+      transition: background 0.2s;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+    .btn-secondary:hover { background: var(--bg-dark); }
+
+    .cta-group {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+      margin-top: 40px;
+    }
+
+    /* ===== ページヘッダー ===== */
+    .page-header {
+      padding: 80px 0 64px;
+      text-align: center;
+      background: linear-gradient(160deg, #FAFAF9 0%, #ECEAE6 100%);
+    }
+    .page-header-label {
+      font-size: 0.72rem;
+      letter-spacing: 0.3em;
+      color: var(--accent);
+      margin-bottom: 20px;
+      text-transform: uppercase;
+    }
+    .page-header-title {
+      font-size: clamp(1.3rem, 4vw, 1.8rem);
+      font-weight: 400;
+      letter-spacing: 0.15em;
+      color: var(--accent-dk);
+      margin-bottom: 24px;
+    }
+    .page-header-lead {
+      font-size: clamp(0.85rem, 2.5vw, 0.95rem);
+      color: var(--text-sub);
+      line-height: 2;
+    }
+
+    /* ===== 声カード ===== */
+    .voices-section { padding: 72px 0 80px; }
+    .voices-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+    }
+    .voice-card {
+      background: var(--white);
+      border: 1px solid var(--line-clr);
+      padding: 40px 36px;
+      position: relative;
+    }
+    .voice-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 28px;
+      gap: 12px;
+    }
+    .voice-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .voice-name {
+      font-size: 0.92rem;
+      letter-spacing: 0.12em;
+      color: var(--accent-dk);
+    }
+    .voice-attr {
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      color: var(--text-sub);
+    }
+    .voice-score {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      flex-shrink: 0;
+    }
+    .voice-score-label {
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      color: var(--text-sub);
+      margin-bottom: 2px;
+    }
+    .voice-score-num {
+      font-size: 1.4rem;
+      letter-spacing: 0.05em;
+      color: var(--accent-dk);
+      font-weight: 400;
+      line-height: 1;
+    }
+    .voice-score-denom {
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      color: var(--text-sub);
+    }
+    .voice-divider {
+      width: 100%;
+      height: 1px;
+      background: var(--line-clr);
+      margin-bottom: 28px;
+    }
+    .voice-quote {
+      font-size: clamp(0.9rem, 2.5vw, 1rem);
+      line-height: 2;
+      color: var(--text);
+      position: relative;
+      padding-left: 20px;
+    }
+    .voice-quote::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 6px;
+      bottom: 6px;
+      width: 2px;
+      background: var(--gold);
+    }
+    .voice-before-after {
+      margin-top: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .voice-ba-item {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+    }
+    .voice-ba-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      color: var(--white);
+      background: var(--accent);
+      padding: 3px 10px;
+      flex-shrink: 0;
+      margin-top: 3px;
+    }
+    .voice-ba-label.after {
+      background: var(--accent-dk);
+    }
+    .voice-ba-text {
+      font-size: 0.9rem;
+      color: var(--text-sub);
+      line-height: 1.9;
+    }
+
+    /* ===== 最終CTA ===== */
+    .final-cta {
+      padding: 80px 0;
+      background: var(--accent-dk);
+      text-align: center;
+    }
+    .final-cta .section-title {
+      color: rgba(255,255,255,0.9);
+    }
+    .final-cta .section-title::after {
+      background: rgba(255,255,255,0.3);
+    }
+    .final-cta .lead {
+      color: rgba(255,255,255,0.65);
+    }
+    .final-cta .btn-primary {
+      background: rgba(255,255,255,0.9);
+      color: var(--accent-dk);
+    }
+    .final-cta .btn-primary:hover {
+      background: var(--white);
+    }
+    .final-cta .btn-secondary {
+      border-color: rgba(255,255,255,0.5);
+      color: rgba(255,255,255,0.85);
+    }
+    .final-cta .btn-secondary:hover {
+      background: rgba(255,255,255,0.08);
+    }
+
+    /* ===== フッター ===== */
+    .footer {
+      background: var(--accent-dk);
+      padding: 36px 0;
+      text-align: center;
+      color: rgba(255,255,255,0.45);
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 28px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+    .footer-links a {
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      color: rgba(255,255,255,0.55);
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: rgba(255,255,255,0.9); }
+    .footer-copy {
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+    }
+
+    /* ===== レスポンシブ ===== */
+    @media (max-width: 639px) {
+      .voice-card { padding: 32px 24px; }
+      .btn-primary { letter-spacing: 0.08em; }
+    }
+    @media (min-width: 640px) {
+      .cta-group { flex-direction: row; justify-content: center; }
+      .voice-before-after { flex-direction: row; gap: 24px; }
+      .voice-ba-item { flex: 1; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ナビゲーション -->
+<nav class="nav" aria-label="サイトナビゲーション">
+  <div class="nav-inner">
+    <span class="nav-logo">Coaching &amp; Compassion Mind Training</span>
+    <a href="../" class="nav-back">← サービスサイトへ戻る</a>
+  </div>
+</nav>
+
+<!-- ページヘッダー -->
+<div class="page-header">
+  <div class="container">
+    <p class="page-header-label">Voices</p>
+    <h1 class="page-header-title">セッションを受けた方の声</h1>
+    <p class="page-header-lead">
+      実際にセッションを受けてくださった方から<br>
+      いただいたご感想です。
+    </p>
+  </div>
+</div>
+
+<!-- 声カード一覧 -->
+<section class="voices-section">
+  <div class="container">
+    <div class="voices-grid">
+
+      <!-- 1: 匿名（たかやまゆり）満足度10 -->
+      <article class="voice-card">
+        <div class="voice-card-header">
+          <div class="voice-meta">
+            <span class="voice-name">匿名</span>
+            <span class="voice-attr">女性</span>
+          </div>
+          <div class="voice-score">
+            <span class="voice-score-label">満足度</span>
+            <span class="voice-score-num">10<span class="voice-score-denom"> / 10</span></span>
+          </div>
+        </div>
+        <div class="voice-divider"></div>
+        <p class="voice-quote">
+          話を聞くだけで終わらせず、具体的な行動もアドバイスしてもらえました。スモールステップで、できそうなものから始めることができました。
+        </p>
+        <div class="voice-before-after">
+          <div class="voice-ba-item">
+            <span class="voice-ba-label">Before</span>
+            <p class="voice-ba-text">自分を信じられないことや、人と比べてしまうこと。</p>
+          </div>
+          <div class="voice-ba-item">
+            <span class="voice-ba-label after">After</span>
+            <p class="voice-ba-text">俯瞰力が上がり、日々の感じ方が変わった。ポジティブな面に焦点を合わせられるようになってきた。</p>
+          </div>
+        </div>
+      </article>
+
+      <!-- 2: M.E（遠藤優）満足度10 -->
+      <article class="voice-card">
+        <div class="voice-card-header">
+          <div class="voice-meta">
+            <span class="voice-name">M.E</span>
+            <span class="voice-attr">男性</span>
+          </div>
+          <div class="voice-score">
+            <span class="voice-score-label">満足度</span>
+            <span class="voice-score-num">10<span class="voice-score-denom"> / 10</span></span>
+          </div>
+        </div>
+        <div class="voice-divider"></div>
+        <p class="voice-quote">
+          完全中立よりも少し私に寄ったスタンスでお話いただいたので、自然と内面を引き出してくれた。話しやすく、心地よく受け入れていただきました。
+        </p>
+      </article>
+
+      <!-- 3: J.M（森純子）満足度10 -->
+      <article class="voice-card">
+        <div class="voice-card-header">
+          <div class="voice-meta">
+            <span class="voice-name">J.M</span>
+            <span class="voice-attr">女性</span>
+          </div>
+          <div class="voice-score">
+            <span class="voice-score-label">満足度</span>
+            <span class="voice-score-num">10<span class="voice-score-denom"> / 10</span></span>
+          </div>
+        </div>
+        <div class="voice-divider"></div>
+        <p class="voice-quote">
+          闇歓迎のスタンスでいてくれるのが嬉しいし、変われると信じてくれていることが何より嬉しい。私が話をするとどんどん言葉にしてくれて、気づきが早まる気がしました。
+        </p>
+      </article>
+
+      <!-- 4: 谷本(徳永)由宇香 満足度9 -->
+      <article class="voice-card">
+        <div class="voice-card-header">
+          <div class="voice-meta">
+            <span class="voice-name">谷本(徳永)由宇香</span>
+            <span class="voice-attr">女性</span>
+          </div>
+          <div class="voice-score">
+            <span class="voice-score-label">満足度</span>
+            <span class="voice-score-num">9<span class="voice-score-denom"> / 10</span></span>
+          </div>
+        </div>
+        <div class="voice-divider"></div>
+        <p class="voice-quote">
+          いつも何かしら気づきがあったり、精神的に楽になれたり、いらない心のストッパーを手放せたり、セッション前後で自分の中の変化がありました！
+        </p>
+        <div class="voice-before-after">
+          <div class="voice-ba-item">
+            <span class="voice-ba-label after">After</span>
+            <p class="voice-ba-text">自分が向き合わなきゃいけないものの正体が鮮明になった気がします。また、向き合うための方向性が見えたと思います！</p>
+          </div>
+        </div>
+      </article>
+
+      <!-- 5: 匿名（山村理雅）満足度9 -->
+      <article class="voice-card">
+        <div class="voice-card-header">
+          <div class="voice-meta">
+            <span class="voice-name">匿名</span>
+            <span class="voice-attr">女性</span>
+          </div>
+          <div class="voice-score">
+            <span class="voice-score-label">満足度</span>
+            <span class="voice-score-num">9<span class="voice-score-denom"> / 10</span></span>
+          </div>
+        </div>
+        <div class="voice-divider"></div>
+        <p class="voice-quote">
+          相談したい内容を特に用意していなかった回でも、自己理解に繋げられるテーマを出してくださったのがありがたかったです。
+        </p>
+        <div class="voice-before-after">
+          <div class="voice-ba-item">
+            <span class="voice-ba-label">Before</span>
+            <p class="voice-ba-text">「とにかく人のために」ということに意識が向いていた。</p>
+          </div>
+          <div class="voice-ba-item">
+            <span class="voice-ba-label after">After</span>
+            <p class="voice-ba-text">「自分も含めた周囲の環境をよくするために」に変わっていた。</p>
+          </div>
+        </div>
+      </article>
+
+      <!-- 6: 匿名（たかやまゆり）体験・満足度9 -->
+      <article class="voice-card">
+        <div class="voice-card-header">
+          <div class="voice-meta">
+            <span class="voice-name">匿名</span>
+            <span class="voice-attr">女性</span>
+          </div>
+          <div class="voice-score">
+            <span class="voice-score-label">満足度</span>
+            <span class="voice-score-num">9<span class="voice-score-denom"> / 10</span></span>
+          </div>
+        </div>
+        <div class="voice-divider"></div>
+        <p class="voice-quote">
+          ご自身の体験も含めて話をしてくれたので、私も変わっていけるのかなと思い希望が持てました。体験1回でも、できそうなことをアドバイスしてもらえたのがよかったです。
+        </p>
+      </article>
+
+      <!-- 7: J.M（森純子）継続・満足度8 -->
+      <article class="voice-card">
+        <div class="voice-card-header">
+          <div class="voice-meta">
+            <span class="voice-name">J.M</span>
+            <span class="voice-attr">女性</span>
+          </div>
+          <div class="voice-score">
+            <span class="voice-score-label">満足度</span>
+            <span class="voice-score-num">8<span class="voice-score-denom"> / 10</span></span>
+          </div>
+        </div>
+        <div class="voice-divider"></div>
+        <p class="voice-quote">
+          信頼があり、取り繕うことなく、等身大の自分でそこにいれたと思っています。何を話したいのかよくわかっていないときもあったのですが、つきあってくれて感謝しています。
+        </p>
+        <div class="voice-before-after">
+          <div class="voice-ba-item">
+            <span class="voice-ba-label">Before</span>
+            <p class="voice-ba-text">ありのままでいたいと思えない。自信がない。</p>
+          </div>
+          <div class="voice-ba-item">
+            <span class="voice-ba-label after">After</span>
+            <p class="voice-ba-text">以前より自分に落ち着いている状態。</p>
+          </div>
+        </div>
+      </article>
+
+      <!-- 8: W.K（猪股和希子）体験・満足度8 -->
+      <article class="voice-card">
+        <div class="voice-card-header">
+          <div class="voice-meta">
+            <span class="voice-name">W.K</span>
+            <span class="voice-attr">女性</span>
+          </div>
+          <div class="voice-score">
+            <span class="voice-score-label">満足度</span>
+            <span class="voice-score-num">8<span class="voice-score-denom"> / 10</span></span>
+          </div>
+        </div>
+        <div class="voice-divider"></div>
+        <p class="voice-quote">
+          共感もあり、具体的なアドバイスもしてくださる点がよかったです。自分の思考を話しやすい雰囲気を作ってくれていました。
+        </p>
+      </article>
+
+      <!-- 9: 匿名（猪股和希子）継続・満足度7 -->
+      <article class="voice-card">
+        <div class="voice-card-header">
+          <div class="voice-meta">
+            <span class="voice-name">匿名</span>
+            <span class="voice-attr">女性</span>
+          </div>
+          <div class="voice-score">
+            <span class="voice-score-label">満足度</span>
+            <span class="voice-score-num">7<span class="voice-score-denom"> / 10</span></span>
+          </div>
+        </div>
+        <div class="voice-divider"></div>
+        <p class="voice-quote">
+          聞くだけでなく、知識や提案を複数いただけること。プロフィールも公開されているので、どんな方かを理解した上でセッションに臨める点が良かったです。
+        </p>
+        <div class="voice-before-after">
+          <div class="voice-ba-item">
+            <span class="voice-ba-label">Before</span>
+            <p class="voice-ba-text">今の延長線上の人生は、なんか違うという漠然とした課題。</p>
+          </div>
+          <div class="voice-ba-item">
+            <span class="voice-ba-label after">After</span>
+            <p class="voice-ba-text">深い課題が解消され、わだかまりなく前を向けるようになった。</p>
+          </div>
+        </div>
+      </article>
+
+      <!-- 10: M.F（深見実咲）満足度6 -->
+      <article class="voice-card">
+        <div class="voice-card-header">
+          <div class="voice-meta">
+            <span class="voice-name">M.F</span>
+            <span class="voice-attr">女性</span>
+          </div>
+          <div class="voice-score">
+            <span class="voice-score-label">満足度</span>
+            <span class="voice-score-num">6<span class="voice-score-denom"> / 10</span></span>
+          </div>
+        </div>
+        <div class="voice-divider"></div>
+        <p class="voice-quote">
+          普段、自分の話をするのがあまり得意じゃないけど、この時間だけは私の話を絶対に聞いてもらえて、内容を気にかけてくれることに感謝！
+        </p>
+        <div class="voice-before-after">
+          <div class="voice-ba-item">
+            <span class="voice-ba-label after">After</span>
+            <p class="voice-ba-text">「いいお母さんでいようという呪縛」から、だいぶ解放されたかな。</p>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- 最終CTA -->
+<section class="final-cta">
+  <div class="container">
+    <h2 class="section-title">
+      まずは、今抱えていることを<br>
+      話してみませんか。
+    </h2>
+    <p class="lead">
+      頭の中で絡まっていることも、<br>
+      まだ言葉にならない気持ちも、<br>
+      安心してお持ちください。
+    </p>
+    <div class="cta-group">
+      <a href="https://app.spirinc.com/t/9g8PvP-1j2xig9Huw7uFf/as/3m2UXmmjzcyxeRCcWBkao/confirm"
+         target="_blank" rel="noopener" class="btn-primary">無料30分相談を予約する</a>
+      <a href="https://lin.ee/JXQjw1f"
+         target="_blank" rel="noopener" class="btn-secondary">公式LINEに登録する</a>
+    </div>
+  </div>
+</section>
+
+<!-- フッター -->
+<footer class="footer">
+  <div class="container">
+    <nav class="footer-links">
+      <a href="https://lin.ee/JXQjw1f" target="_blank" rel="noopener">公式LINE</a>
+      <a href="https://note.com/baru_coach/n/neea467bb3138" target="_blank" rel="noopener">プロフィール</a>
+      <a href="https://www.canva.com/design/DAG5NI6jdh8/L40xAcLxJIz8AG103NgMxQ/view?utm_content=DAG5NI6jdh8&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h0132ba249a" target="_blank" rel="noopener">CMT詳細資料</a>
+    </nav>
+    <p class="footer-copy">&copy; 2026 Yasuka Ozaki. All rights reserved.</p>
+  </div>
+</footer>
+
+</body>
+</html>
