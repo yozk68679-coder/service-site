@@ -84,7 +84,9 @@
       font-size: 0.8rem;
       letter-spacing: 0.2em;
       color: var(--accent-dk);
+      margin-right: auto;
     }
+    .sp-br { display: none; }
     .nav-back {
       font-size: 0.78rem;
       letter-spacing: 0.15em;
@@ -328,6 +330,8 @@
 
     /* ===== レスポンシブ ===== */
     @media (max-width: 639px) {
+      .sp-br { display: inline; }
+      .nav-logo-sep { display: none; }
       .voice-card { padding: 32px 24px; }
       .btn-primary { letter-spacing: 0.08em; }
     }
@@ -343,7 +347,7 @@
 <!-- ナビゲーション -->
 <nav class="nav" aria-label="サイトナビゲーション">
   <div class="nav-inner">
-    <span class="nav-logo">Coaching &amp; Compassion Mind Training</span>
+    <span class="nav-logo">Yasuka Ozaki<span class="nav-logo-sep"> / </span><br class="sp-br">Coaching &amp; Compassion</span>
     <a href="../" class="nav-back">← サービスサイトへ戻る</a>
   </div>
 </nav>
