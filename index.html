@@ -794,6 +794,24 @@
       fill: currentColor;
     }
 
+    /* ===== FV CTA カスタマイズ ===== */
+    .fv-cta .btn-primary {
+      font-size: 0.875rem;
+      color: #FAFAF9;
+    }
+    .fv-cta .btn-primary:hover {
+      background: #4C4846;
+      transform: none;
+    }
+    .fv-cta .btn-secondary {
+      border: 1px solid rgba(60, 56, 54, 0.5);
+      color: #5E5854;
+      font-size: 0.845rem;
+    }
+    .fv-cta .btn-secondary:hover {
+      background: #F0EFED;
+    }
+
     /* ===== レスポンシブ ===== */
     @media (max-width: 639px) {
       .consult-box { padding: 40px 24px; }
@@ -862,14 +880,14 @@
           対話を提供しています。
         </p>
       </div>
-      <div style="display:inline-flex; flex-direction:column; margin-top:40px; align-items:stretch;">
+      <div class="fv-cta" style="display:inline-flex; flex-direction:column; margin-top:40px; align-items:stretch;">
         <a href="https://app.spirinc.com/t/9g8PvP-1j2xig9Huw7uFf/as/3m2UXmmjzcyxeRCcWBkao/confirm"
            target="_blank" rel="noopener" class="btn-primary"
-           style="text-align:center; letter-spacing:0.07em; padding:18px 32px;">無料30分相談を予約する</a>
-        <div style="display:flex; flex-direction:column; align-items:center; gap:5px; margin-top:20px;">
-          <p style="font-size:0.875rem; letter-spacing:0.04em; color:var(--text-sub); margin:0; text-align:center; line-height:1.8;">LINEでは、限定の読みものをお届けしています。</p>
+           style="text-align:center; padding:18px 32px;">無料30分相談を予約する</a>
+        <div style="display:flex; flex-direction:column; align-items:center; gap:4px; margin-top:24px;">
+          <p style="font-size:0.75rem; letter-spacing:0.09em; color:#756F6B; margin:0; text-align:center; line-height:1.8; padding:0 12px;">公式LINEでは、限定メッセージも配信中。</p>
           <a href="https://lin.ee/JXQjw1f" target="_blank" rel="noopener" class="btn-secondary"
-             style="display:block; width:100%; text-align:center; letter-spacing:0.07em; padding:16px 32px;">LINEに登録する</a>
+             style="display:block; width:100%; text-align:center; padding:15px 32px;">公式LINEに登録する</a>
         </div>
       </div>
     </div>
