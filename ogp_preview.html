@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-WPNCJ44DTH"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-WPNCJ44DTH');
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OGPプレビュー確認</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', sans-serif;
+      background: #F0EFED;
+      padding: 40px 20px;
+      color: #3C3836;
+    }
+    h1 {
+      font-size: 14px;
+      color: #888;
+      margin-bottom: 32px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .section {
+      margin-bottom: 48px;
+    }
+    .section-label {
+      font-size: 12px;
+      color: #999;
+      margin-bottom: 12px;
+      letter-spacing: 0.06em;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .section-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: #ddd;
+    }
+
+    /* ===== LINE カード ===== */
+    .line-card {
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      max-width: 400px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.12);
+    }
+    .line-card .ogp-image {
+      width: 100%;
+      height: 210px;
+      background: linear-gradient(135deg, #FAFAF9 0%, #E8E6E2 60%, #D0CEC8 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .line-card .ogp-image .image-text {
+      text-align: center;
+    }
+    .line-card .ogp-image .image-text .name {
+      font-size: 22px;
+      font-weight: 300;
+      letter-spacing: 0.15em;
+      color: #3C3836;
+    }
+    .line-card .ogp-image .image-text .tagline {
+      font-size: 11px;
+      color: #888;
+      letter-spacing: 0.12em;
+      margin-top: 8px;
+    }
+    .line-card .ogp-image .image-text .accent-bar {
+      width: 32px;
+      height: 1px;
+      background: #BCBAB6;
+      margin: 10px auto;
+    }
+    .line-card .ogp-body {
+      padding: 14px 16px 16px;
+    }
+    .line-card .ogp-body .card-title {
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 1.5;
+      color: #1a1a1a;
+      margin-bottom: 6px;
+    }
+    .line-card .ogp-body .card-desc {
+      font-size: 12px;
+      color: #666;
+      line-height: 1.6;
+    }
+    .line-card .ogp-body .card-url {
+      font-size: 11px;
+      color: #999;
+      margin-top: 8px;
+    }
+
+    /* ===== X(Twitter) カード ===== */
+    .x-card {
+      background: #fff;
+      border-radius: 16px;
+      overflow: hidden;
+      max-width: 500px;
+      border: 1px solid #E1E8ED;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+    }
+    .x-card .ogp-image {
+      width: 100%;
+      height: 260px;
+      background: linear-gradient(135deg, #FAFAF9 0%, #E8E6E2 60%, #D0CEC8 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .x-card .ogp-image .image-text {
+      text-align: center;
+    }
+    .x-card .ogp-image .image-text .name {
+      font-size: 26px;
+      font-weight: 300;
+      letter-spacing: 0.15em;
+      color: #3C3836;
+    }
+    .x-card .ogp-image .image-text .tagline {
+      font-size: 12px;
+      color: #888;
+      letter-spacing: 0.12em;
+      margin-top: 10px;
+    }
+    .x-card .ogp-image .image-text .accent-bar {
+      width: 36px;
+      height: 1px;
+      background: #BCBAB6;
+      margin: 10px auto;
+    }
+    .x-card .ogp-body {
+      padding: 12px 16px 14px;
+    }
+    .x-card .ogp-body .card-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: #0f1419;
+      margin-bottom: 4px;
+    }
+    .x-card .ogp-body .card-desc {
+      font-size: 13px;
+      color: #536471;
+      line-height: 1.5;
+    }
+    .x-card .ogp-body .card-url {
+      font-size: 13px;
+      color: #536471;
+      margin-top: 6px;
+    }
+
+    /* ===== Slack カード ===== */
+    .slack-card {
+      background: #fff;
+      border-radius: 8px;
+      overflow: hidden;
+      max-width: 420px;
+      border-left: 4px solid #BCBAB6;
+      box-shadow: 0 1px 6px rgba(0,0,0,0.1);
+      display: flex;
+    }
+    .slack-card .slack-body {
+      padding: 12px 16px;
+      flex: 1;
+    }
+    .slack-card .slack-body .card-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: #1264a3;
+      margin-bottom: 4px;
+    }
+    .slack-card .slack-body .card-desc {
+      font-size: 13px;
+      color: #616061;
+      line-height: 1.5;
+    }
+    .slack-card .slack-thumb {
+      width: 80px;
+      min-height: 80px;
+      background: linear-gradient(135deg, #E8E6E2, #D0CEC8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10px;
+      color: #888;
+      text-align: center;
+      padding: 8px;
+    }
+
+    /* ===== OGP設定コード ===== */
+    .code-block {
+      background: #1e1e2e;
+      border-radius: 10px;
+      padding: 20px 24px;
+      max-width: 600px;
+      overflow-x: auto;
+    }
+    .code-block pre {
+      font-family: 'Consolas', 'Monaco', monospace;
+      font-size: 12px;
+      line-height: 1.8;
+      color: #cdd6f4;
+    }
+    .code-block .comment { color: #6c7086; }
+    .code-block .tag { color: #89b4fa; }
+    .code-block .attr { color: #a6e3a1; }
+    .code-block .val { color: #fab387; }
+
+    .note {
+      font-size: 12px;
+      color: #999;
+      margin-top: 10px;
+      line-height: 1.7;
+    }
+    .note strong { color: #3C3836; }
+
+    .badge {
+      display: inline-block;
+      font-size: 10px;
+      background: #BCBAB6;
+      color: #fff;
+      border-radius: 4px;
+      padding: 2px 7px;
+      margin-right: 4px;
+      letter-spacing: 0.04em;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>OGP プレビュー確認　— 尾崎叶佳 サービスサイト</h1>
+
+  <!-- LINE -->
+  <div class="section">
+    <div class="section-label"><span class="badge">LINE</span> LINEでURLを送ったとき</div>
+    <div class="line-card">
+      <div class="ogp-image">
+        <div class="image-text">
+          <div class="name">Yasuka Ozaki</div>
+          <div class="accent-bar"></div>
+          <div class="tagline">Coaching &amp; Compassion Mind Training</div>
+        </div>
+      </div>
+      <div class="ogp-body">
+        <div class="card-title">尾崎叶佳 | コーチング・コンパッションマインドトレーニング</div>
+        <div class="card-desc">安心して本音を話せる場を。自分の内側と対話することで、本当に望む方向へ。</div>
+        <div class="card-url">service-site-mu.netlify.app</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- X(Twitter) -->
+  <div class="section">
+    <div class="section-label"><span class="badge">X / Twitter</span> X(Twitter)でURLをシェアしたとき</div>
+    <div class="x-card">
+      <div class="ogp-image">
+        <div class="image-text">
+          <div class="name">Yasuka Ozaki</div>
+          <div class="accent-bar"></div>
+          <div class="tagline">Coaching &amp; Compassion Mind Training</div>
+        </div>
+      </div>
+      <div class="ogp-body">
+        <div class="card-title">尾崎叶佳 | コーチング・コンパッションマインドトレーニング</div>
+        <div class="card-desc">安心して本音を話せる場を。自分の内側と対話することで、本当に望む方向へ。</div>
+        <div class="card-url">service-site-mu.netlify.app</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Slack -->
+  <div class="section">
+    <div class="section-label"><span class="badge">Slack / Notion など</span> Slackやドキュメントに貼ったとき</div>
+    <div class="slack-card">
+      <div class="slack-body">
+        <div class="card-title">尾崎叶佳 | コーチング・コンパッションマインドトレーニング</div>
+        <div class="card-desc">安心して本音を話せる場を。自分の内側と対話することで、本当に望む方向へ。</div>
+      </div>
+      <div class="slack-thumb">OGP<br>画像</div>
+    </div>
+  </div>
+
+  <!-- OGPコード -->
+  <div class="section">
+    <div class="section-label"><span class="badge">コード</span> index.html に追加する内容（参考）</div>
+    <div class="code-block">
+      <pre><span class="comment">&lt;!-- OGP --&gt;</span>
+<span class="tag">&lt;meta</span> <span class="attr">property</span>=<span class="val">"og:title"</span>
+      <span class="attr">content</span>=<span class="val">"尾崎叶佳 | コーチング・CMT"</span> <span class="tag">/&gt;</span>
+<span class="tag">&lt;meta</span> <span class="attr">property</span>=<span class="val">"og:description"</span>
+      <span class="attr">content</span>=<span class="val">"安心して本音を話せる場を。自分の内側と対話することで、本当に望む方向へ。"</span> <span class="tag">/&gt;</span>
+<span class="tag">&lt;meta</span> <span class="attr">property</span>=<span class="val">"og:image"</span>
+      <span class="attr">content</span>=<span class="val">"https://service-site-mu.netlify.app/ogp.png"</span> <span class="tag">/&gt;</span>
+<span class="tag">&lt;meta</span> <span class="attr">property</span>=<span class="val">"og:url"</span>
+      <span class="attr">content</span>=<span class="val">"https://service-site-mu.netlify.app/"</span> <span class="tag">/&gt;</span>
+<span class="tag">&lt;meta</span> <span class="attr">property</span>=<span class="val">"og:type"</span>       <span class="attr">content</span>=<span class="val">"website"</span> <span class="tag">/&gt;</span>
+<span class="tag">&lt;meta</span> <span class="attr">property</span>=<span class="val">"og:locale"</span>     <span class="attr">content</span>=<span class="val">"ja_JP"</span> <span class="tag">/&gt;</span>
+
+<span class="comment">&lt;!-- X(Twitter) Card --&gt;</span>
+<span class="tag">&lt;meta</span> <span class="attr">name</span>=<span class="val">"twitter:card"</span>  <span class="attr">content</span>=<span class="val">"summary_large_image"</span> <span class="tag">/&gt;</span>
+<span class="tag">&lt;meta</span> <span class="attr">name</span>=<span class="val">"twitter:title"</span> <span class="attr">content</span>=<span class="val">"尾崎叶佳 | コーチング・CMT"</span> <span class="tag">/&gt;</span>
+<span class="tag">&lt;meta</span> <span class="attr">name</span>=<span class="val">"twitter:image"</span> <span class="attr">content</span>=<span class="val">"https://service-site-mu.netlify.app/ogp.png"</span> <span class="tag">/&gt;</span></pre>
+    </div>
+    <p class="note">
+      ⚠️ <strong>OGP画像（ogp.png）は別途作成が必要です。</strong><br>
+      推奨サイズ：<strong>1200 × 630px</strong>（横長）<br>
+      Canvaで作れます。サイトのロゴ・名前・キャッチコピーを入れたシンプルなもので十分です。
+    </p>
+  </div>
+
+</body>
+</html>

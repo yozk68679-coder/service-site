@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-WPNCJ44DTH"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-WPNCJ44DTH');
+  </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>コーチングとCMT — サービスご紹介</title>
@@ -176,6 +185,8 @@
     .slide-section .divider { background: rgba(255,255,255,0.3); }
 
     /* ---- Slides 6–9: Compare ---- */
+    /* compare-grid を持つスライドは上揃えに統一（ノートの有無で見出し位置がずれないよう） */
+    .slide:has(.compare-grid) { justify-content: flex-start; }
     .compare-head { width: 100%; text-align: center; margin-bottom: 24px; }
     .compare-head h2 { font-size: clamp(0.9rem, 1.8vw, 1.35rem); }
     .compare-grid {
@@ -210,27 +221,51 @@
     .summary-inner p { font-size: clamp(0.72rem, 1.3vw, 0.96rem); line-height: 2.3; color: var(--text-sub); }
     .summary-inner p + p { margin-top: 1.6em; }
 
-    /* ---- Slide 11: CTA ---- */
+    /* ---- Slide 11: CTA (ダーク背景) ---- */
+    .slide-cta { background: var(--accent-dk); }
+    .slide-cta h2 { color: #fff; }
+    .slide-cta .divider { background: rgba(255,255,255,0.25); }
     .cta-inner { text-align: center; }
     .cta-inner h2 { font-size: clamp(0.95rem, 1.8vw, 1.35rem); }
     .cta-body {
       margin: 20px 0 32px;
       font-size: clamp(0.62rem, 1.1vw, 0.82rem);
-      color: var(--text-sub);
+      color: rgba(255,255,255,0.72);
       line-height: 2.2;
     }
-    .cta-btn {
+    .cta-buttons {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .cta-btn-primary {
       display: inline-block;
-      padding: clamp(10px, 1.5%, 14px) clamp(32px, 5%, 52px);
-      border: 1px solid var(--accent-dk);
+      padding: clamp(12px, 1.8%, 16px) clamp(36px, 5.5%, 60px);
+      background: #fff;
       color: var(--accent-dk);
+      font-family: var(--serif);
+      font-size: clamp(0.65rem, 1.15vw, 0.88rem);
+      letter-spacing: 0.15em;
+      text-decoration: none;
+      transition: all 0.25s;
+      white-space: nowrap;
+    }
+    .cta-btn-primary:hover { background: var(--bg-sub); }
+    .cta-btn-line {
+      display: inline-block;
+      padding: clamp(11px, 1.6%, 15px) clamp(32px, 5%, 52px);
+      border: 1px solid rgba(255,255,255,0.5);
+      color: rgba(255,255,255,0.85);
       font-family: var(--serif);
       font-size: clamp(0.65rem, 1.15vw, 0.85rem);
       letter-spacing: 0.18em;
       text-decoration: none;
       transition: all 0.25s;
+      white-space: nowrap;
     }
-    .cta-btn:hover { background: var(--accent-dk); color: #fff; }
+    .cta-btn-line:hover { background: rgba(255,255,255,0.1); }
 
     /* ---- Mobile: スクロール形式 ---- */
     @media (max-width: 639px) {
@@ -252,12 +287,16 @@
         pointer-events: auto;
         transition: none;
         padding: 48px 28px;
-        border-bottom: 1px solid var(--line-clr);
+        /* border-bottom なし：余白だけで区切りを表現 */
         justify-content: flex-start;
         align-items: flex-start;
       }
-      /* セクションタイトル（P5）は中央揃えを維持 */
-      .slide-section { align-items: center; justify-content: center; padding: 40px 28px; }
+      /* セクションタイトル（P5）・CTA（P11）は中央揃えを維持 */
+      .slide-section,
+      .slide-cta { align-items: center; justify-content: center; padding: 40px 28px; }
+      .slide-cta h1, .slide-cta h2 { text-align: center; }
+      .cta-buttons { flex-direction: column; gap: 14px; }
+      .cta-btn-primary, .cta-btn-line { width: 100%; max-width: 280px; text-align: center; }
 
       /* ナビ非表示 */
       .nav { display: none; }
@@ -277,8 +316,9 @@
       /* グリッド：2カラム → 1カラム */
       .bridge-grid { grid-template-columns: 1fr; gap: 28px; }
 
-      /* compare-grid は2カラム維持・パディング調整 */
+      /* compare-grid は2カラム維持・縦線・上線なし */
       .compare-col { padding: 16px 14px; }
+      .compare-col:first-child { border-right: none; }
 
       /* 見出し：letter-spacing 縮小 */
       h1 { letter-spacing: 0.04em; }
@@ -287,9 +327,10 @@
       /* PC用 <br> を非表示・モバイル専用 <br class="sp-br"> を表示 */
       br:not(.sp-br) { display: none; }
       .sp-br { display: inline; }
-      /* P1タイトル・P3見出し：既存のPC用 <br> も含めて表示（3行改行を実現） */
+      /* P1タイトル・P3見出し・カードテキスト：<br> を表示 */
       .s1-title br { display: inline; }
       .s3-wrap h1 br { display: inline; }
+      .type-card p br { display: inline; }
 
       /* テキスト寄せ：スクロール形式は左揃えが読みやすい */
       h1 { text-align: left; }
@@ -338,7 +379,7 @@
   <!-- 3: House -->
   <div class="slide">
     <div class="s3-wrap">
-      <h1>家にたとえるなら、<br class="sp-br">CMTは「地盤の基礎工事」、<br>コーチングは「実際に家を建てる」作業に近いかもしれません。</h1>
+      <h1>家にたとえるなら、<br class="sp-br">CMTは「地盤の基礎工事」、<br>コーチングは「実際に家を建てる」作業に<br class="sp-br">近いかもしれません。</h1>
       <div class="divider" style="margin: 22px 0;"></div>
       <p>土台がぐらついているときに進もうとすると、うまく進めなくなる場合があります。<br>どちらから始めるか、または同時に進めるかは、今の状態によって異なります。</p>
     </div>
@@ -352,7 +393,7 @@
         <p>あなたの中にある答えを、<br>対話を通じて確かめていく時間です。</p>
       </div>
       <div class="bridge-item">
-        <div class="bridge-label">CMT</div>
+        <div class="bridge-label">コンパッションマインドトレーニング（CMT）</div>
         <p>苦しいときに自分を追い立てるのではなく、<br>落ち着いて支えられる心の土台を育てる時間です。</p>
       </div>
     </div>
@@ -391,11 +432,11 @@
     <div class="compare-grid">
       <div class="compare-col">
         <span class="compare-tag">コーチング</span>
-        <p>1対1。<br>テーマはその都度、あなたが選ぶ。</p>
+        <p>1対1<br class="sp-br">テーマはその都度、あなたが選ぶ</p>
       </div>
       <div class="compare-col">
         <span class="compare-tag">CMT</span>
-        <p>講座形式・全12回<br>（基礎6回＋応用6回）</p>
+        <p>講座形式・全12回<br class="sp-br">（基礎6回＋応用6回）</p>
       </div>
     </div>
     <p class="compare-note">どちらも、安心して話せる環境を大切にしています。</p>
@@ -410,11 +451,11 @@
     <div class="compare-grid">
       <div class="compare-col">
         <span class="compare-tag">コーチング</span>
-        <p>方向が定まる。<br>行動しやすくなる。</p>
+        <p>方向が定まる<br>行動しやすくなる</p>
       </div>
       <div class="compare-col">
         <span class="compare-tag">CMT</span>
-        <p>自分を責めすぎなくなる。<br>感情の波が落ち着いてくる。</p>
+        <p>自分を責めすぎなくなる<br>感情の波が落ち着いてくる</p>
       </div>
     </div>
     <p class="compare-note">どちらも、自分のペースで進んでいける状態を目指します。</p>
@@ -448,7 +489,7 @@
   </div>
 
   <!-- 11: CTA -->
-  <div class="slide">
+  <div class="slide slide-cta">
     <div class="cta-inner">
       <h2>ご相談・お問い合わせ</h2>
       <div class="divider"></div>
@@ -457,7 +498,12 @@
         だからこそ、まず30分、あなたの状況をお聞きします。<br>
         そのうえで、コーチングとCMT、どちらが今に合うかを一緒に見立てていきます。
       </p>
-      <a href="https://lin.ee/LtVHcId" class="cta-btn">公式 LINE</a>
+      <div class="cta-buttons">
+        <a href="https://app.spirinc.com/t/9g8PvP-1j2xig9Huw7uFf/as/3m2UXmmjzcyxeRCcWBkao/confirm"
+           target="_blank" rel="noopener" class="cta-btn-primary">30分無料相談を予約する</a>
+        <a href="https://lin.ee/JXQjw1f"
+           target="_blank" rel="noopener" class="cta-btn-line">公式 LINE</a>
+      </div>
     </div>
   </div>
 
