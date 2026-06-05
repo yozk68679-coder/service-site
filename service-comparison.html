@@ -227,6 +227,75 @@
       transition: all 0.25s;
     }
     .cta-btn:hover { background: var(--accent-dk); color: #fff; }
+
+    /* ---- Mobile ---- */
+    @media (max-width: 639px) {
+      body { padding: 16px 12px; }
+
+      /* 16:9 だと高さ約200pxになるので縦長に切り替え */
+      .deck {
+        width: 100%;
+        aspect-ratio: unset;
+        min-height: clamp(480px, 130vw, 600px);
+      }
+      .slide {
+        padding: 28px 20px;
+        justify-content: flex-start;
+        padding-top: 36px;
+      }
+
+      /* 見出し共通：letter-spacing を縮小して折り返しを抑制 */
+      h1 { letter-spacing: 0.04em; font-size: 1.1rem; }
+      h2 { letter-spacing: 0.06em; font-size: 1rem; }
+
+      /* タイトルスライド：PC用 <br> を非表示にして自然折り返し */
+      .s1-title { font-size: 1.15rem; }
+      .s1-title br { display: none; }
+      .s1-sub { font-size: 0.72rem; line-height: 1.9; }
+      .s1-sub br { display: none; }
+
+      /* 3カラム → 1カラム */
+      .types-grid { grid-template-columns: 1fr; gap: 8px; margin-top: 16px; }
+      .type-card { padding: 12px 14px; display: flex; align-items: flex-start; gap: 12px; text-align: left; }
+      .type-num { font-size: 1rem; margin-bottom: 0; flex-shrink: 0; }
+      .type-card p { font-size: 0.72rem; }
+      .type-note { font-size: 0.65rem; margin-top: 12px; }
+
+      /* House：<br> 非表示・フォント縮小で長文を自然折り返し */
+      .s3-wrap h1 { font-size: 0.9rem; line-height: 1.85; }
+      .s3-wrap h1 br { display: none; }
+      .s3-wrap p { font-size: 0.72rem; margin-top: 16px; }
+      .s3-wrap p br { display: none; }
+
+      /* Bridge: 2カラム → 1カラム */
+      .bridge-grid { grid-template-columns: 1fr; gap: 20px; }
+      .bridge-label { font-size: 0.85rem; }
+      .bridge-item p { font-size: 0.72rem; }
+
+      /* Section */
+      .slide-section h1 { font-size: 1.1rem; }
+
+      /* Compare */
+      .compare-head { margin-bottom: 16px; }
+      .compare-head h2 { font-size: 0.95rem; }
+      .compare-col { padding: 14px 12px; }
+      .compare-col p { font-size: 0.72rem; line-height: 1.8; }
+      .compare-tag { font-size: 0.62rem; padding: 3px 12px; margin-bottom: 10px; }
+      .compare-note { font-size: 0.62rem; }
+
+      /* Summary */
+      .summary-inner p { font-size: 0.8rem; line-height: 2.1; }
+
+      /* CTA */
+      .cta-inner h2 { font-size: 1rem; }
+      .cta-body { font-size: 0.72rem; line-height: 2; margin: 16px 0 24px; }
+      .cta-btn { font-size: 0.75rem; padding: 10px 32px; }
+
+      /* Nav */
+      .nav { margin-top: 14px; gap: 14px; }
+      .nav button { padding: 6px 18px; font-size: 0.72rem; }
+      .nav-count { font-size: 0.72rem; }
+    }
   </style>
 </head>
 <body>
