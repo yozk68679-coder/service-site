@@ -258,6 +258,13 @@
       /* ナビ非表示 */
       .nav { display: none; }
 
+      /* 飾り線：border-bottom が区切りを担うため基本非表示 */
+      .divider { display: none; }
+      /* slide-section（P5）内の白い区切り線は残す */
+      .slide-section .divider { display: block; }
+      /* CTA内は残すが短め・薄めに */
+      .cta-inner .divider { display: block; width: 20px; opacity: 0.45; margin: 14px auto; }
+
       /* グリッド：3カラム → 1カラム */
       .types-grid { grid-template-columns: 1fr; gap: 10px; margin-top: 20px; }
       .type-card { display: flex; align-items: flex-start; gap: 14px; text-align: left; padding: 14px 16px; }
