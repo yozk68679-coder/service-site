@@ -707,7 +707,7 @@
       transition: color 0.2s;
     }
     .ai-dialog-toggle:hover { color: var(--accent-dk); }
-    .ai-dialog-accordion.open .ai-dialog-toggle { display: none; }
+    .ai-dialog-accordion.open .ai-dialog-toggle { color: var(--accent-dk); }
     .ai-dialog-body {
       display: none;
       padding: 8px 0 36px;
@@ -906,7 +906,7 @@
     </div>
     <div class="ai-dialog-accordion" id="aiDialogAccordion">
       <button class="ai-dialog-toggle" aria-expanded="false" id="aiDialogToggle">
-        もう少し読む
+        <span class="ai-dialog-toggle-text">もう少し読む</span>
       </button>
       <div class="ai-dialog-body">
         <p>最近では、AIに話しかけながら、<br>
@@ -1276,8 +1276,12 @@
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu(); });
 
   // AIと人の対話 アコーディオン
-  document.getElementById('aiDialogToggle').addEventListener('click', () => {
-    document.getElementById('aiDialogAccordion').classList.add('open');
+  const aiDialogBtn = document.getElementById('aiDialogToggle');
+  const aiDialogAcc = document.getElementById('aiDialogAccordion');
+  aiDialogBtn.addEventListener('click', () => {
+    const isOpen = aiDialogAcc.classList.toggle('open');
+    aiDialogBtn.setAttribute('aria-expanded', String(isOpen));
+    aiDialogBtn.querySelector('.ai-dialog-toggle-text').textContent = isOpen ? '閉じる' : 'もう少し読む';
   });
 
   // FAQ アコーディオン
