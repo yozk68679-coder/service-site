@@ -110,6 +110,9 @@
       margin: 18px auto;
     }
 
+    /* モバイル専用改行（PCでは非表示） */
+    .sp-br { display: none; }
+
     /* ---- Slide 1: Title ---- */
     .s1-title { font-size: clamp(1.2rem, 2.6vw, 2rem); }
     .s1-sub {
@@ -205,6 +208,7 @@
       max-width: 500px;
     }
     .summary-inner p { font-size: clamp(0.72rem, 1.3vw, 0.96rem); line-height: 2.3; color: var(--text-sub); }
+    .summary-inner p + p { margin-top: 1.6em; }
 
     /* ---- Slide 11: CTA ---- */
     .cta-inner { text-align: center; }
@@ -276,14 +280,20 @@
       /* compare-grid は2カラム維持・パディング調整 */
       .compare-col { padding: 16px 14px; }
 
-      /* 見出し：letter-spacing 縮小・<br> 非表示で自然折り返し */
+      /* 見出し：letter-spacing 縮小 */
       h1 { letter-spacing: 0.04em; }
       h2 { letter-spacing: 0.05em; }
-      br { display: none; }
+
+      /* PC用 <br> を非表示・モバイル専用 <br class="sp-br"> を表示 */
+      br:not(.sp-br) { display: none; }
+      .sp-br { display: inline; }
+      /* P1タイトル・P3見出し：既存のPC用 <br> も含めて表示（3行改行を実現） */
+      .s1-title br { display: inline; }
+      .s3-wrap h1 br { display: inline; }
 
       /* テキスト寄せ：スクロール形式は左揃えが読みやすい */
       h1 { text-align: left; }
-      .s1-sub { text-align: left; }
+      .s1-sub { text-align: left; margin-top: 24px; }
       .summary-inner { text-align: left; }
       .summary-inner p { line-height: 2; }
     }
@@ -295,7 +305,7 @@
 
   <!-- 1: タイトル -->
   <div class="slide active">
-    <h1 class="s1-title">どちらも、ひとりでは見えにくいものを、<br>一緒に見ていく場です。</h1>
+    <h1 class="s1-title">どちらも、<br class="sp-br">ひとりでは見えにくいものを、<br>一緒に見ていく場です。</h1>
     <div class="divider"></div>
     <p class="s1-sub">
       コーチングとCMT（コンパッションマインドトレーニング）は、<br>
@@ -307,30 +317,30 @@
 
   <!-- 2: 現在地 -->
   <div class="slide">
-    <h2 class="s2-title">今のあなたは、どのあたりにいますか。</h2>
+    <h2 class="s2-title">今のあなたは、どんな状態ですか？</h2>
     <div class="types-grid">
       <div class="type-card">
         <div class="type-num">01</div>
-        <p>方向感はある。でも、<br>決め切れない・動き切れない気がする。</p>
+        <p>やりたいことはある。<br>でも、決めきれない。<br>動き出せない。</p>
       </div>
       <div class="type-card">
         <div class="type-num">02</div>
-        <p>疲れている。頑張っているのに、<br>なぜかうまくいかない。</p>
+        <p>疲れている。<br>頑張っているのに、<br>思うように進まない。</p>
       </div>
       <div class="type-card">
         <div class="type-num">03</div>
-        <p>何かを変えたい気持ちはあるが、<br>そもそも何をしたいかわからない。</p>
+        <p>変えたい気持ちはある。<br>でも、何をしたいのか<br>まだ言葉にならない。</p>
       </div>
     </div>
-    <p class="type-note">どのタイプかによって、コーチングとCMTのどちらが合うかが変わってきます。</p>
+    <p class="type-note">どの状態かによって、<br class="sp-br">コーチングとCMTのどちらが合うかが変わってきます。</p>
   </div>
 
   <!-- 3: House -->
   <div class="slide">
     <div class="s3-wrap">
-      <h1>家にたとえるなら、CMTは「地盤の基礎工事」、<br>コーチングは「実際に家を建てる」作業に近いかもしれません。</h1>
+      <h1>家にたとえるなら、<br class="sp-br">CMTは「地盤の基礎工事」、<br>コーチングは「実際に家を建てる」作業に近いかもしれません。</h1>
       <div class="divider" style="margin: 22px 0;"></div>
-      <p>土台がぐらついているときに進もうとすると、うまく進めなくなる場合もあります。<br>どちらから始めるか、または同時に進めるかは、今の状態によって異なります。</p>
+      <p>土台がぐらついているときに進もうとすると、うまく進めなくなる場合があります。<br>どちらから始めるか、または同時に進めるかは、今の状態によって異なります。</p>
     </div>
   </div>
 
@@ -431,14 +441,9 @@
   <!-- 10: Summary -->
   <div class="slide">
     <div class="summary-inner">
-      <p>
-        コーチングは「進む力」を育てる場です。<br><br>
-        CMTは「折れにくい土台」を育てる場です。<br><br>
-        どちらが先か、どちらが合うかは、<br>
-        状態によって変わります。<br>
-        無理に決めなくても大丈夫です。<br><br>
-        気になった方から、まずお話しください。
-      </p>
+      <p>コーチングは「進む力」を育てる場です。<br>CMTは「折れにくい土台」を育てる場です。</p>
+      <p>どちらが先か、どちらが合うかは、状態によって変わります。<br>無理に決めなくても大丈夫です。</p>
+      <p>気になった方から、まずお話しください。</p>
     </div>
   </div>
 
