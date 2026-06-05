@@ -45,7 +45,8 @@
     /* ---- Deck ---- */
     .deck {
       position: relative;
-      width: min(1080px, 94vw);
+      /* ナビ・戻るリンク・余白分(約96px)を引いた高さに収まる幅に制約 */
+      width: min(1080px, 94vw, calc((100vh - 96px) * 16 / 9));
       aspect-ratio: 16 / 9;
       box-shadow: 0 8px 40px rgba(0,0,0,0.18);
     }
@@ -88,6 +89,19 @@
     }
     .nav button:hover { background: var(--accent-dk); color: #fff; }
     .nav-count { font-size: 12px; color: var(--accent); letter-spacing: 0.08em; }
+
+    /* ---- Back link ---- */
+    .back-link {
+      margin-top: 10px;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+    }
+    .back-link a {
+      color: var(--accent);
+      text-decoration: none;
+      font-family: var(--serif);
+    }
+    .back-link a:hover { color: var(--accent-dk); }
 
     /* ---- Common ---- */
     h1 {
@@ -327,10 +341,15 @@
       /* PC用 <br> を非表示・モバイル専用 <br class="sp-br"> を表示 */
       br:not(.sp-br) { display: none; }
       .sp-br { display: inline; }
-      /* P1タイトル・P3見出し・カードテキスト：<br> を表示 */
+      /* P1タイトル・P3見出し・カードテキスト・比較カード：<br> を表示 */
       .s1-title br { display: inline; }
       .s3-wrap h1 br { display: inline; }
       .type-card p br { display: inline; }
+      .compare-col p br { display: inline; }
+      .summary-inner p br { display: inline; }
+      .cta-body br { display: inline; }
+      /* compare-note センタリング */
+      .compare-note { width: 100%; text-align: center; }
 
       /* テキスト寄せ：スクロール形式は左揃えが読みやすい */
       h1 { text-align: left; }
@@ -346,7 +365,7 @@
 
   <!-- 1: タイトル -->
   <div class="slide active">
-    <h1 class="s1-title">どちらも、<br class="sp-br">ひとりでは見えにくいものを、<br>一緒に見ていく場です。</h1>
+    <h1 class="s1-title">どちらも、<br class="sp-br">ひとりでは見えにくいものを<br>一緒に見ていく場です。</h1>
     <div class="divider"></div>
     <p class="s1-sub">
       コーチングとCMT（コンパッションマインドトレーニング）は、<br>
@@ -385,7 +404,13 @@
     </div>
   </div>
 
-  <!-- 4: Bridge -->
+  <!-- 4: セクションタイトル -->
+  <div class="slide slide-section">
+    <h1>「コーチング」と「CMT」のちがい</h1>
+    <div class="divider"></div>
+  </div>
+
+  <!-- 5: Bridge -->
   <div class="slide">
     <div class="bridge-grid">
       <div class="bridge-item">
@@ -397,12 +422,6 @@
         <p>苦しいときに自分を追い立てるのではなく、<br>落ち着いて支えられる心の土台を育てる時間です。</p>
       </div>
     </div>
-  </div>
-
-  <!-- 5: セクションタイトル -->
-  <div class="slide slide-section">
-    <h1>「コーチング」と「CMT」のちがい</h1>
-    <div class="divider"></div>
   </div>
 
   <!-- 6: 主な目的 -->
@@ -432,11 +451,11 @@
     <div class="compare-grid">
       <div class="compare-col">
         <span class="compare-tag">コーチング</span>
-        <p>1対1<br class="sp-br">テーマはその都度、あなたが選ぶ</p>
+        <p>1対1形式<br>テーマは都度、あなたが選ぶ</p>
       </div>
       <div class="compare-col">
         <span class="compare-tag">CMT</span>
-        <p>講座形式・全12回<br class="sp-br">（基礎6回＋応用6回）</p>
+        <p>講座形式・全12回<br>（基礎6回＋応用6回）</p>
       </div>
     </div>
     <p class="compare-note">どちらも、安心して話せる環境を大切にしています。</p>
@@ -470,11 +489,11 @@
     <div class="compare-grid">
       <div class="compare-col">
         <span class="compare-tag">コーチング</span>
-        <p>整理したい・前に進みたい方</p>
+        <p>整理したい<br>前に進みたい方</p>
       </div>
       <div class="compare-col">
         <span class="compare-tag">CMT</span>
-        <p>疲れ・不安・自責が続いている方</p>
+        <p>疲れ・不安・自責が<br>続いている方</p>
       </div>
     </div>
   </div>
@@ -484,7 +503,6 @@
     <div class="summary-inner">
       <p>コーチングは「進む力」を育てる場です。<br>CMTは「折れにくい土台」を育てる場です。</p>
       <p>どちらが先か、どちらが合うかは、状態によって変わります。<br>無理に決めなくても大丈夫です。</p>
-      <p>気になった方から、<br>まずはお問い合わせください。</p>
     </div>
   </div>
 
@@ -495,14 +513,15 @@
       <div class="divider"></div>
       <p class="cta-body">
         このサービスが合うかどうか、私にもお話を聞いてみるまでわかりません。<br>
-        だからこそ、まず30分、あなたの状況をお聞きします。<br>
-        そのうえで、コーチングとCMT、どちらが今に合うかを一緒に見立てていきます。
+        まずは30分、あなたの状況をお聞かせください。<br>
+        <br>
+        そのうえで、コーチングとCMT、<br class="sp-br">どちらが今に合うかを一緒に見立てていきます。
       </p>
       <div class="cta-buttons">
         <a href="https://app.spirinc.com/t/9g8PvP-1j2xig9Huw7uFf/as/3m2UXmmjzcyxeRCcWBkao/confirm"
            target="_blank" rel="noopener" class="cta-btn-primary">30分無料相談を予約する</a>
         <a href="https://lin.ee/JXQjw1f"
-           target="_blank" rel="noopener" class="cta-btn-line">公式 LINE</a>
+           target="_blank" rel="noopener" class="cta-btn-line">公式LINEに登録する</a>
       </div>
     </div>
   </div>
@@ -513,6 +532,9 @@
   <button onclick="go(-1)">← 前へ</button>
   <span class="nav-count" id="cnt">1 / 11</span>
   <button onclick="go(1)">次へ →</button>
+</div>
+<div class="back-link">
+  <a href="/">← サービスサイトへ戻る</a>
 </div>
 
 <script>
