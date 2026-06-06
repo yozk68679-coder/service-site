@@ -108,18 +108,108 @@
       margin-right: auto;
     }
     .sp-br { display: none; }
-    .back-link {
-      text-align: center;
-      padding: 28px 0 8px;
-      font-size: 0.82rem;
-      letter-spacing: 0.1em;
+    /* ===== ハンバーガーボタン ===== */
+    .hamburger {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+      width: 44px;
+      height: 44px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      flex-shrink: 0;
     }
-    .back-link a {
-      color: var(--accent);
-      text-decoration: none;
+    .hamburger span {
+      display: block;
+      width: 22px;
+      height: 1px;
+      background: var(--accent-dk);
+      transition: transform 0.3s, opacity 0.3s;
+      transform-origin: center;
+    }
+    .hamburger.open span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+
+    /* ===== オーバーレイメニュー ===== */
+    .overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 200;
+      background: var(--accent-dk);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      overflow-y: auto;
+      padding: 80px 20px 48px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.4s ease;
+    }
+    .overlay.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .overlay-close {
+      position: absolute;
+      top: 24px;
+      right: 5%;
+      width: 44px;
+      height: 44px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+    }
+    .overlay-close span {
+      display: block;
+      width: 22px;
+      height: 1px;
+      background: rgba(255,255,255,0.7);
+    }
+    .overlay-close span:nth-child(1) { transform: rotate(45deg) translateY(0.5px); }
+    .overlay-close span:nth-child(2) { transform: rotate(-45deg) translateY(-0.5px); }
+    .overlay-nav {
+      list-style: none;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      gap: 36px;
+    }
+    .overlay-nav li {
+      opacity: 0;
+      transform: translateY(12px);
+      transition: opacity 0.35s ease, transform 0.35s ease;
+    }
+    .overlay.open .overlay-nav li:nth-child(1) { opacity: 1; transform: none; transition-delay: 0.10s; }
+    .overlay.open .overlay-nav li:nth-child(2) { opacity: 1; transform: none; transition-delay: 0.16s; }
+    .overlay.open .overlay-nav li:nth-child(3) { opacity: 1; transform: none; transition-delay: 0.22s; }
+    .overlay.open .overlay-nav li:nth-child(4) { opacity: 1; transform: none; transition-delay: 0.28s; }
+    .overlay-nav a {
+      font-size: clamp(1rem, 4vw, 1.3rem);
+      letter-spacing: 0.22em;
+      color: rgba(255,255,255,0.85);
+      font-family: 'Hiragino Mincho ProN', 'Yu Mincho', Georgia, serif;
       transition: color 0.2s;
     }
-    .back-link a:hover { color: var(--accent-dk); }
+    .overlay-nav a:hover { color: var(--white); }
+    .overlay-nav .overlay-sub {
+      display: block;
+      font-size: 0.68rem;
+      letter-spacing: 0.2em;
+      color: rgba(255,255,255,0.35);
+      margin-top: 4px;
+      font-family: Georgia, serif;
+    }
 
     /* ===== ボタン ===== */
     .btn-primary {
@@ -375,10 +465,26 @@
 </head>
 <body>
 
+<!-- オーバーレイメニュー -->
+<div class="overlay" id="overlay" role="dialog" aria-modal="true" aria-label="メニュー">
+  <button class="overlay-close" id="overlayClose" aria-label="メニューを閉じる">
+    <span></span><span></span>
+  </button>
+  <ul class="overlay-nav">
+    <li><a href="/#service" onclick="closeMenu()">サービス<span class="overlay-sub">Service</span></a></li>
+    <li><a href="/voices/" onclick="closeMenu()">お客様の声<span class="overlay-sub">Voices</span></a></li>
+    <li><a href="/#profile" onclick="closeMenu()">プロフィール<span class="overlay-sub">Profile</span></a></li>
+    <li><a href="/#flow" onclick="closeMenu()">お申込み<span class="overlay-sub">Flow</span></a></li>
+  </ul>
+</div>
+
 <!-- ナビゲーション -->
 <nav class="nav" aria-label="サイトナビゲーション">
   <div class="nav-inner">
-    <span class="nav-logo">Yasuka Ozaki<span class="nav-logo-sep"> / </span><br class="sp-br">Coaching &amp; Compassion</span>
+    <a href="/" class="nav-logo">Yasuka Ozaki<span class="nav-logo-sep"> / </span><br class="sp-br">Coaching &amp; Compassion</a>
+    <button class="hamburger" id="hamburger" aria-label="メニューを開く" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </nav>
 
@@ -699,13 +805,20 @@
   </div>
 </section>
 
-<div class="back-link">
-  <a href="../">← サービスサイトへ戻る</a>
-</div>
-
 <!-- フッター -->
 <footer class="footer"></footer>
 <script src="/assets/footer.js"></script>
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const overlay   = document.getElementById('overlay');
+  const overlayClose = document.getElementById('overlayClose');
+  function openMenu()  { overlay.classList.add('open'); hamburger.classList.add('open'); hamburger.setAttribute('aria-expanded', 'true'); }
+  function closeMenu() { overlay.classList.remove('open'); hamburger.classList.remove('open'); hamburger.setAttribute('aria-expanded', 'false'); }
+  hamburger.addEventListener('click', openMenu);
+  overlayClose.addEventListener('click', closeMenu);
+  overlay.addEventListener('click', e => { if (e.target === overlay) closeMenu(); });
+</script>
 
 </body>
 </html>
