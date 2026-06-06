@@ -26,19 +26,31 @@
   var HTML =
     '<div class="container">' +
       '<div class="footer-icon-links">' +
-        '<a href="https://lin.ee/JXQjw1f" target="_blank" rel="noopener" class="footer-icon-link">' + LINE_SVG + '公式LINE</a>' +
-        '<a href="https://www.instagram.com/yasuka_coach" target="_blank" rel="noopener" class="footer-icon-link">' + IG_SVG + 'Instagram</a>' +
-        '<a href="https://note.com/baru_coach" target="_blank" rel="noopener" class="footer-icon-link">' + NOTE_SVG + 'note</a>' +
+        '<a href="https://lin.ee/JXQjw1f" target="_blank" rel="noopener" class="footer-icon-link" data-ga-location="footer" data-ga-label="公式LINE">' + LINE_SVG + '公式LINE</a>' +
+        '<a href="https://www.instagram.com/yasuka_coach" target="_blank" rel="noopener" class="footer-icon-link" data-ga-location="footer" data-ga-label="Instagram">' + IG_SVG + 'Instagram</a>' +
+        '<a href="https://note.com/baru_coach" target="_blank" rel="noopener" class="footer-icon-link" data-ga-location="footer" data-ga-label="note">' + NOTE_SVG + 'note</a>' +
       '</div>' +
       '<nav class="footer-links">' +
-        '<a href="https://note.com/baru_coach/n/neea467bb3138" target="_blank" rel="noopener">プロフィール</a>' +
-        '<a href="/service-comparison.html" target="_blank" rel="noopener">コーチングとCMTの違い</a>' +
+        '<a href="https://note.com/baru_coach/n/neea467bb3138" target="_blank" rel="noopener" data-ga-location="footer" data-ga-label="プロフィール">プロフィール</a>' +
+        '<a href="/service-comparison.html" target="_blank" rel="noopener" data-ga-location="footer" data-ga-label="コーチングとCMTの違い">コーチングとCMTの違い</a>' +
       '</nav>' +
       '<p class="footer-copy">&copy; 2026 Yasuka Ozaki. All rights reserved.</p>' +
     '</div>';
 
   document.addEventListener('DOMContentLoaded', function () {
     var footer = document.querySelector('footer.footer');
-    if (footer) footer.innerHTML = HTML;
+    if (footer) {
+      footer.innerHTML = HTML;
+      footer.querySelectorAll('[data-ga-location]').forEach(function (el) {
+        el.addEventListener('click', function () {
+          if (typeof gtag !== 'undefined') {
+            gtag('event', 'cta_click', {
+              button_label: el.dataset.gaLabel,
+              button_location: el.dataset.gaLocation
+            });
+          }
+        });
+      });
+    }
   });
 })();
