@@ -202,7 +202,9 @@
     .overlay.open .overlay-nav li:nth-child(5) { opacity: 1; transform: none; transition-delay: 0.34s; }
     .overlay.open .overlay-nav li:nth-child(6) { opacity: 1; transform: none; transition-delay: 0.40s; }
     .overlay.open .overlay-nav li:nth-child(7) { opacity: 1; transform: none; transition-delay: 0.46s; }
-    .overlay-nav a {
+    .overlay-nav a,
+    .overlay-nav a:visited,
+    .overlay-nav a:link {
       font-size: clamp(1rem, 4vw, 1.3rem);
       letter-spacing: 0.22em;
       color: rgba(255,255,255,0.85);
@@ -210,7 +212,7 @@
       text-decoration: none;
       transition: color 0.2s;
     }
-    .overlay-nav a:hover { color: var(--white); }
+    .overlay-nav a:hover { color: var(--white); text-decoration: none; }
     .overlay-nav .overlay-sub {
       display: block;
       font-size: 0.68rem;
