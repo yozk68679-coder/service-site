@@ -108,15 +108,18 @@
       margin-right: auto;
     }
     .sp-br { display: none; }
-    .nav-back {
-      font-size: 0.78rem;
-      letter-spacing: 0.15em;
+    .back-link {
+      text-align: center;
+      padding: 28px 0 8px;
+      font-size: 0.82rem;
+      letter-spacing: 0.1em;
+    }
+    .back-link a {
       color: var(--accent);
-      border-bottom: 1px solid var(--line-clr);
-      padding-bottom: 2px;
+      text-decoration: none;
       transition: color 0.2s;
     }
-    .nav-back:hover { color: var(--accent-dk); }
+    .back-link a:hover { color: var(--accent-dk); }
 
     /* ===== ボタン ===== */
     .btn-primary {
@@ -376,7 +379,6 @@
 <nav class="nav" aria-label="サイトナビゲーション">
   <div class="nav-inner">
     <span class="nav-logo">Yasuka Ozaki<span class="nav-logo-sep"> / </span><br class="sp-br">Coaching &amp; Compassion</span>
-    <a href="../" class="nav-back">← サービスサイトへ戻る</a>
   </div>
 </nav>
 
@@ -696,6 +698,10 @@
     </div>
   </div>
 </section>
+
+<div class="back-link">
+  <a href="../">← サービスサイトへ戻る</a>
+</div>
 
 <!-- フッター -->
 <footer class="footer"></footer>
