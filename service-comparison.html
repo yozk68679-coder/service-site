@@ -188,6 +188,7 @@
     .overlay.open .overlay-nav li:nth-child(2) { opacity: 1; transform: none; transition-delay: 0.16s; }
     .overlay.open .overlay-nav li:nth-child(3) { opacity: 1; transform: none; transition-delay: 0.22s; }
     .overlay.open .overlay-nav li:nth-child(4) { opacity: 1; transform: none; transition-delay: 0.28s; }
+    .overlay.open .overlay-nav li:nth-child(5) { opacity: 1; transform: none; transition-delay: 0.34s; }
     .overlay-nav a {
       font-size: clamp(1rem, 4vw, 1.3rem);
       letter-spacing: 0.22em;
@@ -227,6 +228,7 @@
     }
     .slide-nav button:hover { background: var(--accent-dk); color: #fff; }
     .nav-count { font-size: 12px; color: var(--accent); letter-spacing: 0.08em; }
+    @media (max-width: 639px) { .slide-nav { display: none; } }
 
     /* ---- Footer ---- */
     footer.footer { width: 100%; }
