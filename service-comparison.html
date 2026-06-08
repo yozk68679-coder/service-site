@@ -103,6 +103,11 @@
       color: var(--accent-dk);
       font-family: var(--serif);
       text-decoration: none;
+      margin-right: auto;
+    }
+    .nav-logo-sep-sc { }
+    @media (max-width: 639px) {
+      .nav-logo-sep-sc { display: none; }
     }
 
     /* ---- Hamburger ---- */
@@ -511,7 +516,7 @@
 
 <!-- サイトナビゲーション -->
 <nav class="site-nav" aria-label="サイトナビゲーション">
-  <a href="/" class="site-nav-logo">Yasuka Ozaki / Coaching &amp; Compassion</a>
+  <a href="/" class="site-nav-logo">Yasuka Ozaki<span class="nav-logo-sep-sc"> / </span><br class="sp-br">Coaching &amp; Compassion</a>
   <button class="hamburger" id="hamburger" aria-label="メニューを開く" aria-expanded="false">
     <span></span><span></span><span></span>
   </button>
