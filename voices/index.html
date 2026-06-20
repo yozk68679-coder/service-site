@@ -195,6 +195,7 @@
     .overlay.open .overlay-nav li:nth-child(3) { opacity: 1; transform: none; transition-delay: 0.22s; }
     .overlay.open .overlay-nav li:nth-child(4) { opacity: 1; transform: none; transition-delay: 0.28s; }
     .overlay.open .overlay-nav li:nth-child(5) { opacity: 1; transform: none; transition-delay: 0.34s; }
+    .overlay.open .overlay-nav li:nth-child(6) { opacity: 1; transform: none; transition-delay: 0.40s; }
     .overlay-nav a {
       font-size: clamp(1rem, 4vw, 1.3rem);
       letter-spacing: 0.22em;
@@ -211,6 +212,14 @@
       margin-top: 4px;
       font-family: Georgia, serif;
     }
+    .overlay-nav .overlay-cta {
+      display: inline-block;
+      padding: 14px 36px;
+      border: 1px solid rgba(255,255,255,0.5);
+      border-radius: 2px;
+      transition: background 0.2s;
+    }
+    .overlay-nav .overlay-cta:hover { background: rgba(255,255,255,0.1); }
 
     /* ===== ボタン ===== */
     .btn-primary {
@@ -479,8 +488,9 @@
   <ul class="overlay-nav">
     <li><a href="/#ai-dialog" onclick="closeMenu()">人との対話<span class="overlay-sub">Dialogue</span></a></li>
     <li><a href="/#service" onclick="closeMenu()">サービス<span class="overlay-sub">Service</span></a></li>
-    <li><a href="/#profile" onclick="closeMenu()">プロフィール<span class="overlay-sub">Profile</span></a></li>
     <li><a href="/voices/" onclick="closeMenu()">お客様の声<span class="overlay-sub">Voices</span></a></li>
+    <li><a href="/#profile" onclick="closeMenu()">プロフィール<span class="overlay-sub">Profile</span></a></li>
+    <li><a href="/#consult" class="overlay-cta" onclick="closeMenu()">無料30分相談<span class="overlay-sub">Free Consultation</span></a></li>
     <li><a href="/#flow" onclick="closeMenu()">お申込みの流れ<span class="overlay-sub">Flow</span></a></li>
   </ul>
 </div>

@@ -200,6 +200,7 @@
     .overlay.open .overlay-nav li:nth-child(3) { opacity: 1; transform: none; transition-delay: 0.22s; }
     .overlay.open .overlay-nav li:nth-child(4) { opacity: 1; transform: none; transition-delay: 0.28s; }
     .overlay.open .overlay-nav li:nth-child(5) { opacity: 1; transform: none; transition-delay: 0.34s; }
+    .overlay.open .overlay-nav li:nth-child(6) { opacity: 1; transform: none; transition-delay: 0.40s; }
     .overlay-nav a,
     .overlay-nav a:visited,
     .overlay-nav a:link {
@@ -219,6 +220,14 @@
       margin-top: 4px;
       font-family: Georgia, serif;
     }
+    .overlay-nav .overlay-cta {
+      display: inline-block;
+      padding: 14px 36px;
+      border: 1px solid rgba(255,255,255,0.5);
+      border-radius: 2px;
+      transition: background 0.2s;
+    }
+    .overlay-nav .overlay-cta:hover { background: rgba(255,255,255,0.1); }
 
     /* ===== ボタン ===== */
     .btn-primary {
@@ -309,9 +318,9 @@
       max-width: 960px;
       margin: 0 auto;
     }
-    .fv-text { max-width: 500px; }
+    .fv-text { max-width: 100%; }
     .fv-heading {
-      font-size: clamp(1.45rem, 3.2vw, 2.1rem);
+      font-size: clamp(0.85rem, 4.2vw, 1.9rem);
       font-weight: 400;
       line-height: 1.75;
       letter-spacing: 0.06em;
@@ -350,7 +359,6 @@
     @media (max-width: 767px) {
       .fv { padding: 64px 0 72px; }
       .fv-text { max-width: 100%; }
-      .fv-heading { font-size: clamp(1.45rem, 5.5vw, 2.1rem); }
       .fv-body { font-size: clamp(0.88rem, 3vw, 0.96rem); }
       /* スマホは全面背景として薄く敷く */
       .fv-photo {
@@ -753,6 +761,44 @@
     .ai-dialog-accordion.open .ai-dialog-body { display: block; }
     @media (max-width: 639px) { .ai-dialog-body br { display: none; } }
 
+    /* ===== カード内アコーディオン ===== */
+    .card-accordion {
+      margin-top: 36px;
+      padding-top: 28px;
+      border-top: 1px solid var(--line-clr);
+    }
+    .card-accordion-toggle {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      padding: 0;
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 0.82rem;
+      letter-spacing: 0.15em;
+      color: var(--accent);
+      transition: color 0.2s;
+    }
+    .card-accordion-toggle:hover { color: var(--accent-dk); }
+    .card-accordion-toggle::after {
+      content: '＋';
+      font-size: 0.75rem;
+      transition: transform 0.25s;
+    }
+    .card-accordion.open .card-accordion-toggle::after {
+      content: '−';
+    }
+    .card-accordion.open .card-accordion-toggle { color: var(--accent-dk); }
+    .card-accordion-body {
+      display: none;
+      padding-top: 24px;
+    }
+    .card-accordion.open .card-accordion-body { display: block; }
+
     /* ===== 最終CTA ===== */
     .final-cta {
       background: var(--accent-dk);
@@ -869,8 +915,9 @@
   <ul class="overlay-nav">
     <li><a href="#ai-dialog" onclick="closeMenu()">人との対話<span class="overlay-sub">Dialogue</span></a></li>
     <li><a href="#service" onclick="closeMenu()">サービス<span class="overlay-sub">Service</span></a></li>
-    <li><a href="#profile" onclick="closeMenu()">プロフィール<span class="overlay-sub">Profile</span></a></li>
     <li><a href="/voices/" onclick="closeMenu()">お客様の声<span class="overlay-sub">Voices</span></a></li>
+    <li><a href="#profile" onclick="closeMenu()">プロフィール<span class="overlay-sub">Profile</span></a></li>
+    <li><a href="#consult" class="overlay-cta" onclick="closeMenu()">無料30分相談<span class="overlay-sub">Free Consultation</span></a></li>
     <li><a href="#flow" onclick="closeMenu()">お申込みの流れ<span class="overlay-sub">Flow</span></a></li>
   </ul>
 </div>
@@ -887,30 +934,31 @@
 
 <!-- FV -->
 <section class="fv">
-  <div class="fv-photo">
-    <img src="assets/fv.png" alt="">
-  </div>
-  <div class="fv-inner">
+<div class="fv-inner">
     <div class="fv-text">
       <h1 class="fv-heading">
-        美しさを保って生きるには、<br>
-        髪や身体と同じように、<br>
-        「心」もメンテナンスがいる。
+        自分にとっての「最高」を目指して、<br>
+        人や仕事と真剣に向き合ってきたあなたへ。
       </h1>
       <div class="fv-body">
         <p>
-          人に合わせすぎて疲れる。<br>
-          周囲の反応を気にしすぎてしまう。<br>
-          幸せなはずなのに、どこか満たされない…。
+          現代社会は、<br>
+          情報や刺激にあふれています。
         </p>
         <p>
-          その「満たされなさ」の奥にあるのは、<br>
-          「安心」の不足かもしれません。
+          仕事・人間関係に向き合うなかで<br>
+          気づかないうちに疲れやストレスを<br>
+          ため込んでしまうことはありませんか。
         </p>
         <p>
-          安心できる対話の中で、<br>
-          自分の本音と人との関わり方を<br>
-          少しずつ整えて、健やかで美しい人生を。
+          心身健やかに生きるには、<br>
+          身体を整えるように<br>
+          心にも定期的なメンテナンスが必要です。
+        </p>
+        <p>
+          プロとの安心できる対話の中で、<br>
+          自分の本音と丁寧に向き合い、<br>
+          しなやかに力を発揮できる人生へ。
         </p>
       </div>
       <div class="fv-cta" style="display:inline-flex; flex-direction:column; margin-top:40px; align-items:stretch;">
@@ -929,8 +977,21 @@
   </div>
 </section>
 
+<!-- こんな方へ -->
+<section id="for-whom" class="section">
+  <div class="container">
+    <h2 class="section-title">こんな方へ</h2>
+    <ul class="for-whom-list">
+      <li>頭の中が整理できず、モヤモヤしている</li>
+      <li>気を遣いすぎて疲れてしまう</li>
+      <li>本音がわからなくなっている</li>
+      <li>パートナーや上司・部下との関わり方を変えたい</li>
+    </ul>
+  </div>
+</section>
+
 <!-- AIと人の対話 -->
-<section id="ai-dialog" class="section">
+<section id="ai-dialog" class="section section-alt">
   <div class="container">
     <h2 class="section-title">人との対話だから、起きる変化</h2>
     <div class="ai-dialog-intro">
@@ -968,41 +1029,8 @@
   </div>
 </section>
 
-<!-- こんな方へ -->
-<section id="for-whom" class="section section-alt">
-  <div class="container">
-    <h2 class="section-title">こんな方へ</h2>
-    <ul class="for-whom-list">
-      <li>頭の中が整理できず、モヤモヤしている</li>
-      <li>気を遣いすぎて疲れてしまう</li>
-      <li>本音がわからなくなっている</li>
-      <li>パートナーや上司・部下との関わり方を変えたい</li>
-    </ul>
-  </div>
-</section>
-
-<!-- 無料相談 -->
-<section id="consult" class="section">
-  <div class="container">
-    <h2 class="section-title">まずは、無料30分相談から</h2>
-    <div class="consult-box">
-      <p class="lead">
-        まず一度話して、頭の中を整理したい方へ。<br><br>
-        お悩みやモヤモヤを一緒に掘り下げ、<br>
-        「何に困っているのか」を可視化します。<br><br>
-        相談後には「次にどうすればいいか」が<br>
-        明確になることを目指します。
-      </p>
-      <a href="https://app.spirinc.com/t/9g8PvP-1j2xig9Huw7uFf/as/3m2UXmmjzcyxeRCcWBkao/confirm"
-         target="_blank" rel="noopener" class="btn-primary"
-         data-ga-location="consult" data-ga-label="無料30分相談を予約する">無料30分相談を予約する</a>
-      <p class="note-small">無理な勧誘はありません。<br>まずは安心してお話しください。</p>
-    </div>
-  </div>
-</section>
-
 <!-- サービス -->
-<section id="service" class="section section-alt">
+<section id="service" class="section">
   <div class="container">
     <h2 class="section-title">提供しているサービス</h2>
     <div class="service-cards">
@@ -1023,6 +1051,30 @@
           <tr><th>期間</th><td>3か月 または 6か月</td></tr>
           <tr><th>料金</th><td>11,000円 / 月（税込）</td></tr>
         </table>
+        <div class="card-accordion" id="sessionFlowAccordion">
+          <button class="card-accordion-toggle" id="sessionFlowToggle">セッションの進め方を見る</button>
+          <div class="card-accordion-body">
+            <div class="flow-steps">
+              <div class="flow-step">
+                <span class="flow-num">01</span>
+                <div><p class="flow-text-title">まず、じっくりお話を聴きます</p></div>
+              </div>
+              <div class="flow-step">
+                <span class="flow-num">02</span>
+                <div><p class="flow-text-title">困りごとや、今感じていることを一緒に整理します</p></div>
+              </div>
+              <div class="flow-step">
+                <span class="flow-num">03</span>
+                <div><p class="flow-text-title">感情・身体・思考・行動・環境などの視点から、何が起きているのかを見立てます</p></div>
+              </div>
+              <div class="flow-step">
+                <span class="flow-num">04</span>
+                <div><p class="flow-text-title">変化の糸口を見つけ、次にできることを具体的にご提案します</p></div>
+              </div>
+            </div>
+            <p class="flow-note">※ 必要に応じて、感情のケアも行います</p>
+          </div>
+        </div>
       </div>
 
       <!-- CMT -->
@@ -1043,18 +1095,21 @@
           <tr><th>料金</th><td>5,000円 / 回（税込）</td></tr>
         </table>
         <p class="price-total">合計 60,000円（税込）</p>
-        <div class="service-note">
-          どちらが合うか迷う方へ<br>
-          <a href="/service-comparison.html" class="btn-text" style="margin-top: 12px; display: inline-block; white-space: nowrap;">コーチングとCMTの違いを見る →</a>
-        </div>
       </div>
 
     </div>
+
+    <div class="service-note" style="margin-top: 40px;">
+      どちらが合うか迷う方へ<br><br>
+      <a href="service-comparison.html"
+         target="_blank" rel="noopener" class="btn-text">コーチングとCMTの違いを見る →</a>
+    </div>
+
   </div>
 </section>
 
 <!-- 変化の声 -->
-<section class="section">
+<section class="section section-alt">
   <div class="container">
     <h2 class="section-title">セッションを受けた方の変化</h2>
     <ul class="changes-list">
@@ -1072,7 +1127,7 @@
 </section>
 
 <!-- 大切にしていること -->
-<section class="section section-alt">
+<section class="section">
   <div class="container">
     <h2 class="section-title">安心して本音を話せる場を</h2>
     <div class="values-block">
@@ -1096,7 +1151,7 @@
 </section>
 
 <!-- プロフィール -->
-<section id="profile" class="section">
+<section id="profile" class="section section-alt">
   <div class="container">
     <h2 class="section-title">プロフィール</h2>
     <div class="profile-inner">
@@ -1143,6 +1198,26 @@
              data-ga-location="profile" data-ga-label="詳しいプロフィールを見る">詳しいプロフィールを見る →</a>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- 無料相談 -->
+<section id="consult" class="section">
+  <div class="container">
+    <h2 class="section-title">まずは、無料30分相談から</h2>
+    <div class="consult-box">
+      <p class="lead">
+        まず一度話して、頭の中を整理したい方へ。<br><br>
+        お悩みやモヤモヤを一緒に掘り下げ、<br>
+        「何に困っているのか」を可視化します。<br><br>
+        相談後には「次にどうすればいいか」が<br>
+        明確になることを目指します。
+      </p>
+      <a href="https://app.spirinc.com/t/9g8PvP-1j2xig9Huw7uFf/as/3m2UXmmjzcyxeRCcWBkao/confirm"
+         target="_blank" rel="noopener" class="btn-primary"
+         data-ga-location="consult" data-ga-label="無料30分相談を予約する">無料30分相談を予約する</a>
+      <p class="note-small">無理な勧誘はありません。<br>まずは安心してお話しください。</p>
     </div>
   </div>
 </section>
@@ -1319,6 +1394,14 @@
     const isOpen = aiDialogAcc.classList.toggle('open');
     aiDialogBtn.setAttribute('aria-expanded', String(isOpen));
     aiDialogBtn.querySelector('.ai-dialog-toggle-text').textContent = isOpen ? '閉じる' : 'もう少し読む';
+  });
+
+  // セッションの進め方 アコーディオン
+  const sessionFlowBtn = document.getElementById('sessionFlowToggle');
+  const sessionFlowAcc = document.getElementById('sessionFlowAccordion');
+  sessionFlowBtn.addEventListener('click', () => {
+    const isOpen = sessionFlowAcc.classList.toggle('open');
+    sessionFlowBtn.textContent = isOpen ? '閉じる' : 'セッションの進め方を見る';
   });
 
   // FAQ アコーディオン
