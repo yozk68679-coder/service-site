@@ -796,7 +796,7 @@
 
     </div>
     <p class="voices-more">
-      より詳しいレビューを読みたい方は<a href="https://note.com/baru_coach/n/n9c52cf46ed50#b0e202a8-4dac-4dfb-84f1-45060834895f" target="_blank" rel="noopener">こちら</a>。
+      より詳しいレビューを読みたい方は<a href="https://note.com/baru_coach/n/n9c52cf46ed50#b0e202a8-4dac-4dfb-84f1-45060834895f" target="_blank" rel="noopener" data-ga-location="voices" data-ga-label="noteレビュー記事">こちら</a>。
     </p>
   </div>
 </section>
@@ -815,9 +815,9 @@
     </p>
     <div class="cta-group">
       <a href="https://app.spirinc.com/t/9g8PvP-1j2xig9Huw7uFf/as/3m2UXmmjzcyxeRCcWBkao/confirm"
-         target="_blank" rel="noopener" class="btn-primary">無料30分相談を予約する</a>
+         target="_blank" rel="noopener" class="btn-primary" data-ga-location="voices_final_cta" data-ga-label="無料30分相談を予約する">無料30分相談を予約する</a>
       <a href="https://lin.ee/JXQjw1f"
-         target="_blank" rel="noopener" class="btn-secondary">公式LINEに登録する</a>
+         target="_blank" rel="noopener" class="btn-secondary" data-ga-location="voices_final_cta" data-ga-label="公式LINEに登録する">公式LINEに登録する</a>
     </div>
   </div>
 </section>
@@ -835,6 +835,15 @@
   hamburger.addEventListener('click', openMenu);
   overlayClose.addEventListener('click', closeMenu);
   overlay.addEventListener('click', e => { if (e.target === overlay) closeMenu(); });
+
+  // GA4 CTAクリックイベント（ページ内CTAのみ。フッターのリンクは footer.js が計測）
+  document.querySelectorAll('[data-ga-location]').forEach(el => {
+    el.addEventListener('click', () => {
+      if (typeof gtag === 'function') {
+        gtag('event', 'cta_click', { button_label: el.dataset.gaLabel, button_location: el.dataset.gaLocation });
+      }
+    });
+  });
 </script>
 
 </body>

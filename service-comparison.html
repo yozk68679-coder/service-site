@@ -248,7 +248,7 @@
     footer.footer { width: 100%; }
 
     /* ---- Common ---- */
-    h1 {
+    h1, .s3-wrap h2, .slide-section h2 {
       font-family: var(--serif);
       font-weight: 400;
       color: var(--text);
@@ -317,7 +317,7 @@
 
     /* ---- Slide 3: House ---- */
     .s3-wrap { width: 100%; }
-    .s3-wrap h1 { text-align: left; font-size: clamp(0.95rem, 1.9vw, 1.45rem); }
+    .s3-wrap h1, .s3-wrap h2 { text-align: left; font-size: clamp(0.95rem, 1.9vw, 1.45rem); }
     .s3-wrap p { margin-top: 28px; font-size: clamp(0.65rem, 1.15vw, 0.85rem); color: var(--text-sub); }
 
     /* ---- Slide 4: Bridge ---- */
@@ -339,7 +339,7 @@
 
     /* ---- Slide 5: Section title ---- */
     .slide-section { background: var(--accent-dk); }
-    .slide-section h1 { color: #fff; font-size: clamp(1.1rem, 2.2vw, 1.8rem); letter-spacing: 0.2em; }
+    .slide-section h1, .slide-section h2 { color: #fff; font-size: clamp(1.1rem, 2.2vw, 1.8rem); letter-spacing: 0.2em; }
     .slide-section .divider { background: rgba(255,255,255,0.3); }
 
     /* ---- Slides 6–9: Compare ---- */
@@ -481,16 +481,16 @@
       .compare-col:first-child { border-right: none; }
 
       /* 見出し：letter-spacing 縮小 */
-      h1 { letter-spacing: 0.04em; }
+      h1, .s3-wrap h2, .slide-section h2 { letter-spacing: 0.04em; }
       h2 { letter-spacing: 0.05em; }
-      .slide-section h1 { font-size: clamp(0.88rem, 3.8vw, 1.1rem); letter-spacing: 0.08em; white-space: nowrap; }
+      .slide-section h1, .slide-section h2 { font-size: clamp(0.88rem, 3.8vw, 1.1rem); letter-spacing: 0.08em; white-space: nowrap; }
 
       /* PC用 <br> を非表示・モバイル専用 <br class="sp-br"> を表示 */
       br:not(.sp-br) { display: none; }
       .sp-br { display: inline; }
       /* P1タイトル・P3見出し・カードテキスト・比較カード：<br> を表示 */
       .s1-title br { display: inline; }
-      .s3-wrap h1 br { display: inline; }
+      .s3-wrap h1 br, .s3-wrap h2 br { display: inline; }
       .type-card p br { display: inline; }
       .compare-col p br { display: inline; }
       .summary-inner p br { display: inline; }
@@ -500,7 +500,7 @@
       .compare-note { width: 100%; text-align: center; }
 
       /* テキスト寄せ：スクロール形式は左揃えが読みやすい */
-      h1 { text-align: left; }
+      h1, .s3-wrap h2, .slide-section h2 { text-align: left; }
       .s1-sub { text-align: left; margin-top: 24px; }
       .summary-inner { text-align: center; width: 100%; }
       .summary-inner p { line-height: 2; }
@@ -569,7 +569,7 @@
   <!-- 3: House -->
   <div class="slide">
     <div class="s3-wrap">
-      <h1>家にたとえるなら、<br class="sp-br">CMTは「地盤の基礎工事」、<br>コーチングは「実際に家を建てる」作業に<br class="sp-br">近いかもしれません。</h1>
+      <h2>家にたとえるなら、<br class="sp-br">CMTは「地盤の基礎工事」、<br>コーチングは「実際に家を建てる」作業に<br class="sp-br">近いかもしれません。</h2>
       <div class="divider" style="margin: 22px 0;"></div>
       <p>土台がぐらついているときに進もうとすると、うまく進めなくなる場合があります。<br>どちらから始めるか、または同時に進めるかは、今の状態によって異なります。</p>
     </div>
@@ -577,7 +577,7 @@
 
   <!-- 4: セクションタイトル -->
   <div class="slide slide-section">
-    <h1>「コーチング」と「CMT」のちがい</h1>
+    <h2>「コーチング」と「CMT」のちがい</h2>
     <div class="divider"></div>
   </div>
 
@@ -690,9 +690,9 @@
       </p>
       <div class="cta-buttons">
         <a href="https://app.spirinc.com/t/9g8PvP-1j2xig9Huw7uFf/as/3m2UXmmjzcyxeRCcWBkao/confirm"
-           target="_blank" rel="noopener" class="cta-btn-primary">30分無料相談を予約する</a>
+           target="_blank" rel="noopener" class="cta-btn-primary" data-ga-location="comparison" data-ga-label="無料30分相談を予約する">30分無料相談を予約する</a>
         <a href="https://lin.ee/JXQjw1f"
-           target="_blank" rel="noopener" class="cta-btn-line">公式LINEに登録する</a>
+           target="_blank" rel="noopener" class="cta-btn-line" data-ga-location="comparison" data-ga-label="公式LINEに登録する">公式LINEに登録する</a>
       </div>
     </div>
   </div>
@@ -708,6 +708,15 @@
 <script>
   let cur = 0;
   const slides = document.querySelectorAll('.slide');
+
+  // GA4 CTAクリックイベント（ページ内CTAのみ。フッターのリンクは footer.js が計測）
+  document.querySelectorAll('[data-ga-location]').forEach(el => {
+    el.addEventListener('click', () => {
+      if (typeof gtag === 'function') {
+        gtag('event', 'cta_click', { button_label: el.dataset.gaLabel, button_location: el.dataset.gaLocation });
+      }
+    });
+  });
 
   // ---- Analytics ----
   // gtag が設定済みなら GA4 イベント送信、未設定なら localStorage に記録

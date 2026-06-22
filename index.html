@@ -1164,7 +1164,7 @@
     <h2 class="section-title">プロフィール</h2>
     <div class="profile-inner">
       <div class="profile-img-wrap">
-        <img src="assets/profile.jpg" alt="尾崎叶佳" style="width:100%; aspect-ratio:1/1; object-fit:cover; object-position:center top; filter:brightness(1.03) contrast(1.02) saturate(0.88);">
+        <img src="assets/profile.jpg" alt="尾崎叶佳" loading="lazy" decoding="async" style="width:100%; aspect-ratio:1/1; object-fit:cover; object-position:center top; filter:brightness(1.03) contrast(1.02) saturate(0.88);">
       </div>
       <div>
         <p class="profile-name">尾崎 叶佳</p>
@@ -1398,6 +1398,11 @@
   // AIと人の対話 アコーディオン
   const aiDialogBtn = document.getElementById('aiDialogToggle');
   const aiDialogAcc = document.getElementById('aiDialogAccordion');
+  const aiDialogBody = aiDialogAcc.querySelector('.ai-dialog-body');
+  if (aiDialogBody) {
+    if (!aiDialogBody.id) aiDialogBody.id = 'aiDialogBody';
+    aiDialogBtn.setAttribute('aria-controls', aiDialogBody.id);
+  }
   aiDialogBtn.addEventListener('click', () => {
     const isOpen = aiDialogAcc.classList.toggle('open');
     aiDialogBtn.setAttribute('aria-expanded', String(isOpen));
@@ -1407,13 +1412,25 @@
   // セッションの進め方 アコーディオン
   const sessionFlowBtn = document.getElementById('sessionFlowToggle');
   const sessionFlowAcc = document.getElementById('sessionFlowAccordion');
+  const sessionFlowBody = sessionFlowAcc.querySelector('.card-accordion-body');
+  if (sessionFlowBody) {
+    if (!sessionFlowBody.id) sessionFlowBody.id = 'sessionFlowBody';
+    sessionFlowBtn.setAttribute('aria-controls', sessionFlowBody.id);
+  }
+  sessionFlowBtn.setAttribute('aria-expanded', 'false');
   sessionFlowBtn.addEventListener('click', () => {
     const isOpen = sessionFlowAcc.classList.toggle('open');
+    sessionFlowBtn.setAttribute('aria-expanded', String(isOpen));
     sessionFlowBtn.textContent = isOpen ? '閉じる' : 'セッションの進め方を見る';
   });
 
   // FAQ アコーディオン
-  document.querySelectorAll('.faq-question').forEach(btn => {
+  document.querySelectorAll('.faq-question').forEach((btn, idx) => {
+    const answer = btn.closest('.faq-item').querySelector('.faq-answer');
+    if (answer) {
+      if (!answer.id) answer.id = 'faq-answer-' + (idx + 1);
+      btn.setAttribute('aria-controls', answer.id);
+    }
     btn.addEventListener('click', () => {
       const item = btn.closest('.faq-item');
       const isOpen = item.classList.contains('open');
