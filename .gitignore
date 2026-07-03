@@ -5,6 +5,9 @@
 preview_*.html
 _memo.md
 
+# 画像の元ファイル（WebP版のみリポジトリに置く）
+assets/profile.png
+
 # OS
 .DS_Store
 Thumbs.db

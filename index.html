@@ -32,7 +32,7 @@
     html { scroll-behavior: smooth; }
     body {
       font-family: 'Hiragino Mincho ProN', 'Yu Mincho', 'YuMincho', Georgia, serif;
-      background-color: #FAFAF9;
+      background-color: #FDFBF6;
       color: #2C2C2C;
       font-size: 16px;
       line-height: 1.85;
@@ -45,15 +45,15 @@
 
     /* ===== カラー変数 ===== */
     :root {
-      --bg:        #FAFAF9;
-      --bg-sub:    #F0EFED;
-      --bg-dark:   #E0DED9;
-      --text:      #2A2A2A;
-      --text-sub:  #6A6A6A;
-      --accent:    #8C8480;
-      --accent-dk: #3C3836;
-      --gold:      #BCBAB6;
-      --line-clr:  #D8D6D2;
+      --bg:        #FDFBF6;
+      --bg-sub:    #F6F0E4;
+      --bg-dark:   #EBE0CC;
+      --text:      #2E2A24;
+      --text-sub:  #7A7060;
+      --accent:    #B89B6E;
+      --accent-dk: #4A4234;
+      --gold:      #C9A96E;
+      --line-clr:  #E5DCC8;
       --white:     #FFFFFF;
     }
 
@@ -306,7 +306,7 @@
       min-height: 96vh;
       display: flex;
       align-items: center;
-      background: linear-gradient(160deg, #FAFAF9 0%, #ECEAE6 100%);
+      background: linear-gradient(160deg, #FDFBF6 0%, #EBE0CC 100%);
       position: relative;
       overflow: hidden;
       padding: 120px 0 100px;
@@ -331,7 +331,20 @@
       line-height: 1.75;
       letter-spacing: 0.06em;
       color: var(--accent-dk);
-      margin-bottom: 32px;
+      margin-bottom: 20px;
+    }
+    .fv-sub {
+      font-size: clamp(0.86rem, 1.5vw, 1rem);
+      color: var(--accent-dk);
+      line-height: 2;
+      letter-spacing: 0.06em;
+      margin-bottom: 36px;
+    }
+    .fv-fact {
+      margin-top: 32px;
+      font-size: 0.76rem;
+      letter-spacing: 0.08em;
+      color: var(--text-sub);
     }
     .fv-body {
       font-size: clamp(0.88rem, 1.4vw, 0.96rem);
@@ -340,44 +353,10 @@
     }
     .fv-body p + p { margin-top: 20px; }
 
-    /* 写真：デスクトップは右端に絶対配置 */
-    .fv-photo {
-      position: absolute;
-      right: 0;
-      top: 0;
-      height: 100%;
-      width: 46%;
-      z-index: 0;
-      pointer-events: none;
-    }
-    .fv-photo img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center top;
-      opacity: 0.82;
-      filter: saturate(0.88) brightness(1.04);
-      -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,0.5) 20%, black 46%);
-      mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,0.5) 20%, black 46%);
-      display: block;
-    }
-
     @media (max-width: 767px) {
       .fv { padding: 64px 0 72px; }
       .fv-text { max-width: 100%; }
       .fv-body { font-size: clamp(0.88rem, 3vw, 0.96rem); }
-      /* スマホは全面背景として薄く敷く */
-      .fv-photo {
-        inset: 0;
-        width: 100%;
-        -webkit-mask-image: none;
-        mask-image: none;
-      }
-      .fv-photo img {
-        opacity: 0.22;
-        object-position: right top;
-        filter: saturate(0.7) brightness(1.08);
-      }
     }
 
     /* ===== FOR WHOM ===== */
@@ -395,6 +374,26 @@
       letter-spacing: 0.04em;
       line-height: 1.7;
       box-shadow: 0 2px 16px rgba(60,56,54,0.06);
+    }
+    .for-whom-lead {
+      margin: -16px 0 40px;
+      text-align: center;
+      font-size: clamp(0.88rem, 1.4vw, 0.96rem);
+      color: var(--text-sub);
+      letter-spacing: 0.05em;
+      line-height: 2.1;
+    }
+    .for-whom-note {
+      margin-top: 36px;
+      text-align: center;
+      font-size: 0.9rem;
+      color: var(--text-sub);
+      letter-spacing: 0.06em;
+      line-height: 2;
+      text-decoration: underline;
+      text-decoration-color: rgba(229, 207, 148, 0.45);
+      text-decoration-thickness: 6px;
+      text-underline-offset: 7px;
     }
 
     /* ===== 無料相談 ===== */
@@ -433,10 +432,10 @@
       height: 3px;
       background: linear-gradient(90deg, var(--gold), var(--accent));
     }
-    .service-card-label {
+    .service-card p.service-card-label {
       font-size: 0.72rem;
       letter-spacing: 0.3em;
-      color: var(--gold);
+      color: var(--accent);
       margin-bottom: 12px;
     }
     .service-card-title {
@@ -531,7 +530,7 @@
       text-align: center;
       padding: 28px;
       border: 1px solid var(--gold);
-      background: linear-gradient(135deg, #fff 0%, #F4F3F1 100%);
+      background: linear-gradient(135deg, #fff 0%, #F6F0E4 100%);
       box-shadow: 0 2px 16px rgba(188,186,182,0.15);
     }
     .voice-link-box p {
@@ -828,7 +827,7 @@
 
     /* ===== フッター ===== */
     .footer {
-      background: #282826;
+      background: #2E2A24;
       color: rgba(255,255,255,0.55);
       padding: 48px 0;
       text-align: center;
@@ -887,7 +886,7 @@
       color: #FAFAF9;
     }
     .fv-cta .btn-primary:hover {
-      background: #4C4846;
+      background: #5C5340;
       transform: none;
     }
     .fv-cta .btn-secondary {
@@ -948,34 +947,21 @@
         真剣に人や仕事と<br>
         向き合ってきたあなたへ。
       </h1>
-      <div class="fv-body">
-        <p>
-          現代社会は、<br>
-          情報や刺激にあふれています。
-        </p>
-        <p>
-          仕事・人間関係に向き合うなかで<br>
-          気づかないうちに疲れやストレスを<br>
-          ため込んでしまうことはありませんか。
-        </p>
-        <p>
-          心身健やかに生きるには、<br>
-          身体を整えるように<br>
-          心にも定期的なメンテナンスが必要です。
-        </p>
-        <p>
-          プロとの安心できる対話の中で、<br>
-          自分の本音と丁寧に向き合い、<br>
-          しなやかに力を発揮できる人生へ。
-        </p>
-      </div>
-      <div class="fv-cta" style="display:inline-flex; flex-direction:column; margin-top:40px; align-items:stretch;">
-        <a href="https://app.spirinc.com/t/9g8PvP-1j2xig9Huw7uFf/as/3m2UXmmjzcyxeRCcWBkao/confirm"
-           target="_blank" rel="noopener" class="btn-primary"
-           style="text-align:center; padding:18px 32px;"
-           data-ga-location="fv" data-ga-label="無料30分相談を予約する">無料30分相談を予約する</a>
+      <p class="fv-sub">
+        感情や思考が整理され、<br class="sp-br">最善の選択ができるように。<br>
+        そのための、対話の時間です。
+      </p>
+      <p class="fv-fact">これまでの有償セッションは100時間超。<br>満足度は平均8.3／10点です。<br>（回答12件・2026年7月時点）</p>
+      <div class="fv-cta" style="display:inline-flex; flex-direction:column; margin-top:52px; align-items:stretch;">
+        <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
+          <p style="font-size:0.75rem; letter-spacing:0.09em; color:#8A7B60; margin:0; text-align:center; line-height:1.8; padding:0 12px;">所要30分・Zoom・無理な勧誘はありません</p>
+          <a href="https://app.spirinc.com/t/9g8PvP-1j2xig9Huw7uFf/as/3m2UXmmjzcyxeRCcWBkao/confirm"
+             target="_blank" rel="noopener" class="btn-primary"
+             style="display:block; width:100%; text-align:center; padding:18px 32px;"
+             data-ga-location="fv" data-ga-label="無料30分相談を予約する">無料30分相談を予約する</a>
+        </div>
         <div style="display:flex; flex-direction:column; align-items:center; gap:4px; margin-top:24px;">
-          <p style="font-size:0.75rem; letter-spacing:0.09em; color:#756F6B; margin:0; text-align:center; line-height:1.8; padding:0 12px;">公式LINEでは、限定メッセージも配信中。</p>
+          <p style="font-size:0.75rem; letter-spacing:0.09em; color:#8A7B60; margin:0; text-align:center; line-height:1.8; padding:0 12px;">公式LINEでは、限定メッセージも配信中。</p>
           <a href="https://lin.ee/JXQjw1f" target="_blank" rel="noopener" class="btn-secondary"
              style="display:block; width:100%; text-align:center; padding:15px 32px;"
              data-ga-location="fv" data-ga-label="公式LINEに登録する">公式LINEに登録する</a>
@@ -989,12 +975,16 @@
 <section id="for-whom" class="section">
   <div class="container">
     <h2 class="section-title">こんな方へ</h2>
+    <p class="for-whom-lead">仕事・人間関係に向き合うなかで<br>
+    気づかないうちに疲れやストレスを<br>
+    ため込んでしまうことはありませんか。</p>
     <ul class="for-whom-list">
       <li>頭の中が整理できず、モヤモヤしている</li>
       <li>気を遣いすぎて疲れてしまう</li>
       <li>本音がわからなくなっている</li>
       <li>パートナーや上司・部下との関わり方を変えたい</li>
     </ul>
+    <p class="for-whom-note">身体を整えるように、<br class="sp-br">心にも定期的なメンテナンスが必要です。</p>
   </div>
 </section>
 
@@ -1118,6 +1108,10 @@
       <p>より詳しい感想・体験談は<br>こちらからご覧いただけます。</p>
       <a href="voices/" class="btn-text">お客様の声を読む →</a>
     </div>
+    <p style="text-align:center; margin-top:32px;">
+      <a href="#consult" class="btn-text"
+         data-ga-location="changes" data-ga-label="無料30分相談へ">まずは、無料30分相談から →</a>
+    </p>
   </div>
 </section>
 
@@ -1151,7 +1145,7 @@
     <h2 class="section-title">プロフィール</h2>
     <div class="profile-inner">
       <div class="profile-img-wrap">
-        <img src="assets/profile.jpg" alt="尾崎叶佳" loading="lazy" decoding="async" style="width:100%; aspect-ratio:1/1; object-fit:cover; object-position:center top; filter:brightness(1.03) contrast(1.02) saturate(0.88);">
+        <img src="assets/profile.webp" alt="尾崎叶佳" loading="lazy" decoding="async" style="width:100%; aspect-ratio:1/1; object-fit:cover; object-position:center top; filter:brightness(1.02) contrast(1.02) saturate(0.95);">
       </div>
       <div>
         <p class="profile-name">尾崎 叶佳</p>

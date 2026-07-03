@@ -1,6 +1,6 @@
 (function () {
   var CSS =
-    '.footer{background:#282826;color:rgba(255,255,255,.55);padding:48px 0;text-align:center}' +
+    '.footer{background:#2E2A24;color:rgba(255,255,255,.55);padding:48px 0;text-align:center}' +
     '.footer-icon-links{display:flex;justify-content:center;gap:36px;margin-bottom:20px;flex-wrap:wrap}' +
     '.footer-icon-link{display:flex;flex-direction:column;align-items:center;gap:7px;color:rgba(255,255,255,.5);font-size:.7rem;letter-spacing:.1em;text-decoration:none;transition:color .2s}' +
     '.footer-icon-link:hover{color:rgba(255,255,255,.9)}' +
