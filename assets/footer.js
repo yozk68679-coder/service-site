@@ -1,12 +1,12 @@
 (function () {
   var CSS =
-    '.footer{background:#2E2A24;color:rgba(255,255,255,.55);padding:48px 0;text-align:center}' +
+    '.footer{background:#2E2A24;color:rgba(255,255,255,.65);padding:48px 0;text-align:center}' +
     '.footer-icon-links{display:flex;justify-content:center;gap:36px;margin-bottom:20px;flex-wrap:wrap}' +
-    '.footer-icon-link{display:flex;flex-direction:column;align-items:center;gap:7px;color:rgba(255,255,255,.5);font-size:.7rem;letter-spacing:.1em;text-decoration:none;transition:color .2s}' +
+    '.footer-icon-link{display:flex;flex-direction:column;align-items:center;gap:7px;color:rgba(255,255,255,.7);font-size:.7rem;letter-spacing:.1em;text-decoration:none;transition:color .2s}' +
     '.footer-icon-link:hover{color:rgba(255,255,255,.9)}' +
     '.footer-icon-link svg{width:22px;height:22px;fill:currentColor}' +
     '.footer-links{display:flex;justify-content:center;flex-wrap:wrap;gap:24px;margin-bottom:28px}' +
-    '.footer-links a{font-size:.78rem;letter-spacing:.1em;color:rgba(255,255,255,.5);text-decoration:none;transition:color .2s}' +
+    '.footer-links a{font-size:.78rem;letter-spacing:.1em;color:rgba(255,255,255,.7);text-decoration:none;transition:color .2s}' +
     '.footer-links a:hover{color:rgba(255,255,255,.9)}' +
     '.footer-copy{font-size:.72rem;letter-spacing:.1em}';
 

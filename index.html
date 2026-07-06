@@ -49,8 +49,9 @@
       --bg-sub:    #F6F0E4;
       --bg-dark:   #EBE0CC;
       --text:      #2E2A24;
-      --text-sub:  #7A7060;
+      --text-sub:  #635A4C;
       --accent:    #B89B6E;
+      --accent-txt: #82683F;
       --accent-dk: #4A4234;
       --gold:      #C9A96E;
       --line-clr:  #E5DCC8;
@@ -216,7 +217,7 @@
       display: block;
       font-size: 0.68rem;
       letter-spacing: 0.2em;
-      color: rgba(255,255,255,0.35);
+      color: rgba(255,255,255,0.6);
       margin-top: 4px;
       font-family: Georgia, serif;
     }
@@ -263,8 +264,8 @@
       display: inline-block;
       font-size: 0.85rem;
       letter-spacing: 0.1em;
-      color: var(--accent);
-      border-bottom: 1px solid var(--line-clr);
+      color: var(--accent-txt);
+      border-bottom: 1px solid var(--accent-txt);
       padding-bottom: 2px;
       transition: color 0.2s;
     }
@@ -435,7 +436,7 @@
     .service-card p.service-card-label {
       font-size: 0.72rem;
       letter-spacing: 0.3em;
-      color: var(--accent);
+      color: var(--accent-txt);
       margin-bottom: 12px;
     }
     .service-card-title {
@@ -494,6 +495,12 @@
       color: var(--text-sub);
       line-height: 1.85;
       text-align: center;
+    }
+    .service-note-lead {
+      font-size: 0.95rem;
+      color: var(--accent-dk);
+      letter-spacing: 0.08em;
+      margin-bottom: 20px;
     }
 
     /* ===== 変化 ===== */
@@ -613,7 +620,7 @@
     .profile-name-en {
       font-size: 0.78rem;
       letter-spacing: 0.2em;
-      color: var(--accent);
+      color: var(--accent-txt);
       margin-bottom: 24px;
     }
     .profile-body {
@@ -639,7 +646,7 @@
     .flow-step:last-child { border-bottom: none; }
     .flow-num {
       font-size: 2rem;
-      color: var(--accent);
+      color: var(--accent-txt);
       font-family: Georgia, serif;
       letter-spacing: -0.02em;
       line-height: 1.2;
@@ -694,7 +701,7 @@
       width: 18px;
       height: 18px;
       position: relative;
-      color: var(--accent);
+      color: var(--accent-txt);
     }
     .faq-icon::before,
     .faq-icon::after {
@@ -750,7 +757,7 @@
       font-family: inherit;
       font-size: 0.8rem;
       letter-spacing: 0.15em;
-      color: var(--accent);
+      color: var(--accent-txt);
       transition: color 0.2s;
     }
     .ai-dialog-toggle:hover { color: var(--accent-dk); }
@@ -785,7 +792,7 @@
       font-family: inherit;
       font-size: 0.82rem;
       letter-spacing: 0.15em;
-      color: var(--accent);
+      color: var(--accent-txt);
       transition: color 0.2s;
     }
     .card-accordion-toggle:hover { color: var(--accent-dk); }
@@ -828,7 +835,7 @@
     /* ===== フッター ===== */
     .footer {
       background: #2E2A24;
-      color: rgba(255,255,255,0.55);
+      color: rgba(255,255,255,0.65);
       padding: 48px 0;
       text-align: center;
     }
@@ -848,7 +855,7 @@
     .footer-links a {
       font-size: 0.78rem;
       letter-spacing: 0.1em;
-      color: rgba(255,255,255,0.5);
+      color: rgba(255,255,255,0.7);
       transition: color 0.2s;
     }
     .footer-links a:hover { color: rgba(255,255,255,0.9); }
@@ -868,7 +875,7 @@
       flex-direction: column;
       align-items: center;
       gap: 7px;
-      color: rgba(255,255,255,0.5);
+      color: rgba(255,255,255,0.7);
       font-size: 0.7rem;
       letter-spacing: 0.1em;
       transition: color 0.2s;
@@ -954,7 +961,7 @@
       <p class="fv-fact">これまでの有償セッションは100時間超。<br>満足度は平均8.3／10点です。<br>（回答12件・2026年7月時点）</p>
       <div class="fv-cta" style="display:inline-flex; flex-direction:column; margin-top:52px; align-items:stretch;">
         <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
-          <p style="font-size:0.75rem; letter-spacing:0.09em; color:#8A7B60; margin:0; text-align:center; line-height:1.8; padding:0 12px;">所要30分・Zoom・無理な勧誘はありません</p>
+          <p style="font-size:0.75rem; letter-spacing:0.09em; color:#8A7B60; margin:0; text-align:center; line-height:1.8; padding:0 12px;">所要30分・Zoom・事前準備なしでOK。</p>
           <a href="https://app.spirinc.com/t/9g8PvP-1j2xig9Huw7uFf/as/3m2UXmmjzcyxeRCcWBkao/confirm"
              target="_blank" rel="noopener" class="btn-primary"
              style="display:block; width:100%; text-align:center; padding:18px 32px;"
@@ -1085,7 +1092,7 @@
     </div>
 
     <div class="service-note" style="margin-top: 40px;">
-      どちらが合うか迷う方へ<br><br>
+      <p class="service-note-lead">どちらが合うか迷う方へ</p>
       <a href="service-comparison.html"
          target="_blank" rel="noopener" class="btn-text">コーチングとCMTの違いを見る →</a>
     </div>
@@ -1206,7 +1213,7 @@
       <a href="https://app.spirinc.com/t/9g8PvP-1j2xig9Huw7uFf/as/3m2UXmmjzcyxeRCcWBkao/confirm"
          target="_blank" rel="noopener" class="btn-primary"
          data-ga-location="consult" data-ga-label="無料30分相談を予約する">無料30分相談を予約する</a>
-      <p class="note-small">無理な勧誘はありません。<br>まずは安心してお話しください。</p>
+      <p class="note-small">特に準備は必要ありません。<br>まずは安心してお話しください。</p>
     </div>
   </div>
 </section>
@@ -1220,7 +1227,7 @@
         <span class="flow-num">01</span>
         <div>
           <p class="flow-text-title">無料30分相談を予約</p>
-          <p class="flow-text-body"><a href="https://app.spirinc.com/t/9g8PvP-1j2xig9Huw7uFf/as/3m2UXmmjzcyxeRCcWBkao/confirm" target="_blank" rel="noopener" data-ga-location="flow" data-ga-label="予約フォーム" style="color:var(--accent);border-bottom:1px solid var(--line-clr);padding-bottom:1px;">予約フォーム</a>から日程をお選びください。</p>
+          <p class="flow-text-body"><a href="https://app.spirinc.com/t/9g8PvP-1j2xig9Huw7uFf/as/3m2UXmmjzcyxeRCcWBkao/confirm" target="_blank" rel="noopener" data-ga-location="flow" data-ga-label="予約フォーム" style="color:var(--accent-txt);border-bottom:1px solid var(--accent-txt);padding-bottom:1px;">予約フォーム</a>から日程をお選びください。</p>
         </div>
       </div>
       <div class="flow-step">
