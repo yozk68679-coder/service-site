@@ -246,7 +246,12 @@
     @media (max-width: 639px) { .slide-nav { display: none; } }
 
     /* ---- Footer ---- */
-    footer.footer { width: 100%; }
+    /* body の左右padding(24px)を打ち消して画面端まで背景を届かせる */
+    footer.footer { width: calc(100% + 48px); margin-left: -24px; margin-right: -24px; }
+    @media (max-width: 639px) {
+      /* モバイルは body の左右paddingが0なので通常幅に戻す */
+      footer.footer { width: 100%; margin-left: 0; margin-right: 0; }
+    }
 
     /* ---- Common ---- */
     h1, .s3-wrap h2, .slide-section h2 {
