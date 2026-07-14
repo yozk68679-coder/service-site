@@ -3,6 +3,7 @@
 
 # プレビュー・作業用一時ファイル
 preview_*.html
+preview_bg/
 _memo.md
 
 # 画像の元ファイル（WebP版のみリポジトリに置く）

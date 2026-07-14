@@ -312,6 +312,25 @@
       overflow: hidden;
       padding: 120px 0 100px;
     }
+    .fv::before {
+      /* 背景写真（W1：ゴールド〜テラコッタのグラデ）を薄敷き */
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: url("assets/fv_bg.webp") center center / cover no-repeat;
+      filter: saturate(0.8) brightness(1.08);
+      opacity: 0.38;
+      pointer-events: none;
+    }
+    .fv::after {
+      /* 可読性スクリム（左＝本文側を強め） */
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(95deg, rgba(253, 251, 246, 0.9) 0%, rgba(253, 251, 246, 0.45) 48%, rgba(253, 251, 246, 0.05) 82%);
+      pointer-events: none;
+    }
     .fv-inner {
       position: relative;
       z-index: 1;
@@ -332,7 +351,13 @@
       line-height: 1.75;
       letter-spacing: 0.06em;
       color: var(--accent-dk);
-      margin-bottom: 20px;
+      margin-bottom: 32px;
+    }
+    .fv-hl {
+      background: linear-gradient(transparent 60%, rgba(201, 169, 110, 0.30) 60%);
+      padding: 0 0.08em;
+      -webkit-box-decoration-break: clone;
+      box-decoration-break: clone;
     }
     .fv-sub {
       font-size: clamp(0.86rem, 1.5vw, 1rem);
@@ -358,6 +383,13 @@
       .fv { padding: 64px 0 72px; }
       .fv-text { max-width: 100%; }
       .fv-body { font-size: clamp(0.88rem, 3vw, 0.96rem); }
+      .fv-heading { font-size: 1.2rem; line-height: 1.7; }
+      .fv-sub { font-size: 0.82rem; }
+      .fv-fact { font-size: 0.72rem; }
+      .fv::before { opacity: 0.28; background-position: center center; }
+      .fv::after {
+        background: linear-gradient(180deg, rgba(253, 251, 246, 0.82) 0%, rgba(253, 251, 246, 0.4) 45%, rgba(253, 251, 246, 0.12) 100%);
+      }
     }
 
     /* ===== FOR WHOM ===== */
@@ -950,13 +982,14 @@
     <div class="fv-text">
       <p class="fv-label">コーチング／コンパッションの対話サービス</p>
       <h1 class="fv-heading">
-        「最善」を目指して、<br>
-        真剣に人や仕事と<br>
-        向き合ってきたあなたへ。
+        <span class="fv-hl">「わかってるけど、できない。」</span><br>
+        意志の弱さではありません。<br>
+        できない「理由」があります。
       </h1>
       <p class="fv-sub">
-        感情や思考が整理され、<br class="sp-br">最善の選択ができるように。<br>
-        そのための、対話の時間です。
+        感情・身体・思考・行動・環境などの視点で、<br>
+        何が起きているのかを一緒に整理し、<br>
+        具体的な次の一歩を見つけます。
       </p>
       <p class="fv-fact">これまでの有償セッションは100時間超。<br>満足度は平均8.3／10点です。<br>（回答12件・2026年7月時点）</p>
       <div class="fv-cta" style="display:inline-flex; flex-direction:column; margin-top:52px; align-items:stretch;">
