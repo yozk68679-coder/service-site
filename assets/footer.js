@@ -33,6 +33,8 @@
       '<nav class="footer-links">' +
         '<a href="https://note.com/baru_coach/n/neea467bb3138" target="_blank" rel="noopener" data-ga-location="footer" data-ga-label="プロフィール">プロフィール</a>' +
         '<a href="/service-comparison.html" data-ga-location="footer" data-ga-label="コーチングとCMTの違い">コーチングとCMTの違い</a>' +
+        '<a href="/tokushoho.html" data-ga-location="footer" data-ga-label="特定商取引法に基づく表記">特定商取引法に基づく表記</a>' +
+        '<a href="/privacy.html" data-ga-location="footer" data-ga-label="プライバシーポリシー">プライバシーポリシー</a>' +
       '</nav>' +
       '<p class="footer-copy">&copy; 2026 Yasuka Ozaki. All rights reserved.</p>' +
     '</div>';
