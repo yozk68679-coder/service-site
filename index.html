@@ -1702,6 +1702,13 @@
       if (!isOpen) {
         item.classList.add('open');
         btn.setAttribute('aria-expanded', 'true');
+        // 他項目が閉じてレイアウトが変わるため、開いた項目の先頭へスクロール
+        requestAnimationFrame(() => {
+          const nav = document.querySelector('.nav');
+          const navH = nav ? nav.offsetHeight : 0;
+          const y = item.getBoundingClientRect().top + window.scrollY - navH - 12;
+          window.scrollTo({ top: y, behavior: 'smooth' });
+        });
       }
     });
   });
@@ -1729,6 +1736,13 @@
             button_location: 'profile'
           });
         }
+        // 他項目が閉じてレイアウトが変わるため、開いた項目の先頭へスクロール
+        requestAnimationFrame(() => {
+          const nav = document.querySelector('.nav');
+          const navH = nav ? nav.offsetHeight : 0;
+          const y = item.getBoundingClientRect().top + window.scrollY - navH - 12;
+          window.scrollTo({ top: y, behavior: 'smooth' });
+        });
       }
     });
   });
