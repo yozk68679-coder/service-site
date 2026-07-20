@@ -753,6 +753,41 @@
       text-align: center;
       letter-spacing: 0.05em;
     }
+    .flow-points {
+      margin-top: 32px;
+      max-width: 460px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .flow-points-title {
+      font-size: 0.86rem;
+      font-weight: 600;
+      color: var(--text);
+      letter-spacing: 0.08em;
+      margin-bottom: 14px;
+    }
+    .flow-points ul {
+      list-style: none;
+      display: grid;
+      gap: 10px;
+    }
+    .flow-points li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 0.82rem;
+      color: var(--text-sub);
+      line-height: 1.8;
+    }
+    .flow-points li::before {
+      content: '';
+      flex-shrink: 0;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--gold);
+      margin-top: 9px;
+    }
 
     /* ===== FAQ ===== */
     .faq-list { display: grid; gap: 2px; }
@@ -1171,6 +1206,49 @@
           <tr><th>料金</th><td>5,000円 / 回（税込）</td></tr>
         </table>
         <p class="price-total">合計 60,000円（税込）</p>
+        <div class="card-accordion" id="cmtFlowAccordion">
+          <button class="card-accordion-toggle" id="cmtFlowToggle">トレーニングの進め方を見る</button>
+          <div class="card-accordion-body">
+            <div class="flow-steps">
+              <div class="flow-step">
+                <span class="flow-num">01</span>
+                <div>
+                  <p class="flow-text-title">知識を学ぶ</p>
+                  <p class="flow-text-body">感情や心の仕組み、コンパッションの考え方を学びます</p>
+                </div>
+              </div>
+              <div class="flow-step">
+                <span class="flow-num">02</span>
+                <div>
+                  <p class="flow-text-title">ワークで体験する</p>
+                  <p class="flow-text-body">呼吸法やイメージワークを通して、自分の心や身体の反応に気づき、整える方法を練習します</p>
+                </div>
+              </div>
+              <div class="flow-step">
+                <span class="flow-num">03</span>
+                <div>
+                  <p class="flow-text-title">日常生活で試す</p>
+                  <p class="flow-text-body">学んだことを、仕事や人間関係など実際の場面で少しずつ実践します</p>
+                </div>
+              </div>
+              <div class="flow-step">
+                <span class="flow-num">04</span>
+                <div>
+                  <p class="flow-text-title">振り返り、身につける</p>
+                  <p class="flow-text-body">実践して気づいたことを振り返り、自分に合った方法として定着させていきます</p>
+                </div>
+              </div>
+            </div>
+            <div class="flow-points">
+              <p class="flow-points-title">取り組み方のポイント</p>
+              <ul>
+                <li>知識と実践を繰り返しながら進めていきます</li>
+                <li>うまくできることを目指すのではなく、その時々の自分の状態を丁寧に観察します</li>
+                <li>一人ひとりのペースや状況に合わせて、無理のない形で取り組みます</li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </div>
 
     </div>
@@ -1590,6 +1668,21 @@
     const isOpen = sessionFlowAcc.classList.toggle('open');
     sessionFlowBtn.setAttribute('aria-expanded', String(isOpen));
     sessionFlowBtn.textContent = isOpen ? '閉じる' : 'セッションの進め方を見る';
+  });
+
+  // CMT トレーニングの進め方 アコーディオン
+  const cmtFlowBtn = document.getElementById('cmtFlowToggle');
+  const cmtFlowAcc = document.getElementById('cmtFlowAccordion');
+  const cmtFlowBody = cmtFlowAcc.querySelector('.card-accordion-body');
+  if (cmtFlowBody) {
+    if (!cmtFlowBody.id) cmtFlowBody.id = 'cmtFlowBody';
+    cmtFlowBtn.setAttribute('aria-controls', cmtFlowBody.id);
+  }
+  cmtFlowBtn.setAttribute('aria-expanded', 'false');
+  cmtFlowBtn.addEventListener('click', () => {
+    const isOpen = cmtFlowAcc.classList.toggle('open');
+    cmtFlowBtn.setAttribute('aria-expanded', String(isOpen));
+    cmtFlowBtn.textContent = isOpen ? '閉じる' : 'トレーニングの進め方を見る';
   });
 
   // FAQ アコーディオン
