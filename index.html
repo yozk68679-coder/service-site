@@ -1028,11 +1028,54 @@
     @media (max-width: 639px) {
       .consult-box { padding: 40px 24px; }
       .btn-primary { letter-spacing: 0.08em; }
+      /* 左右44pxは狭い画面で1行14文字しか入らないため詰める */
+      .service-card { padding: 44px 24px; }
+      /* 縦積み時は width 指定がないと中身の長さで幅が変わり不揃いになる。
+         max-width:260px はPCの横並び用。モバイルはFVのボタン幅(314px)に合わせる */
+      .final-cta .cta-group a { width: 100%; max-width: 314px; }
     }
     @media (min-width: 640px) {
       .cta-group { flex-direction: row; justify-content: center; }
       .consult-box { padding: 56px 56px; }
       .service-card { padding: 48px 44px; }
+    }
+
+    /* ============================================
+       老眼配慮：モバイル本文サイズの引き上げ
+       PC（768px以上）の表示は一切変更しない
+       ============================================ */
+    @media (max-width: 767px) {
+      /* 本文：16px */
+      .for-whom-lead,
+      .for-whom-note,
+      .for-whom-list li,
+      .changes-list li,
+      .values-body,
+      .lead,
+      .service-card p,
+      .voice-link-box p,
+      .price-total,
+      .ai-dialog-intro,
+      .ai-dialog-body { font-size: 1rem; }
+
+      /* 準本文：15px（p.〜 は .service-card p に負けないための指定） */
+      p.flow-text-body,
+      .faq-contact,
+      .fv-sub { font-size: 0.94rem; }
+
+      /* 小見出し：16.8px */
+      p.flow-text-title,
+      .service-note-lead { font-size: 1.05rem; }
+
+      /* 注記：13.6px */
+      .changes-note,
+      .note-small { font-size: 0.85rem; }
+
+      /* ラベル：12.5px */
+      .fv-label,
+      .fv-fact,
+      .service-card p.service-card-label,
+      .profile-name-en { font-size: 0.78rem; }
     }
   </style>
 </head>
@@ -1074,21 +1117,21 @@
         できない「理由」があります。
       </h1>
       <p class="fv-sub">
-        感情・身体・思考・行動・環境などの視点で、<br>
+        感情・身体・思考・<br class="sp-br">行動・環境などの視点で、<br>
         何が起きているのかを一緒に整理し、<br>
         具体的な次の一歩を見つけます。
       </p>
-      <p class="fv-fact">これまでの有償セッションは140時間超。<br>満足度は平均8.3／10点です。<br>（回答12件・2026年7月時点）</p>
+      <p class="fv-fact">これまでの有償セッションは140時間超。<br>満足度は平均8.3／10点です。<br>（2026年7月時点）</p>
       <div class="fv-cta" style="display:inline-flex; flex-direction:column; margin-top:52px; align-items:stretch;">
         <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
-          <p style="font-size:0.75rem; letter-spacing:0.09em; color:#8A7B60; margin:0; text-align:center; line-height:1.8; padding:0 12px;">所要30分・Zoom・事前準備なしでOK。</p>
+          <p style="font-size:0.85rem; letter-spacing:0.09em; color:#8A7B60; margin:0; text-align:center; line-height:1.8; padding:0 12px;">所要30分・Zoom・事前準備なしでOK。</p>
           <a href="https://app.spirinc.com/t/9g8PvP-1j2xig9Huw7uFf/as/3m2UXmmjzcyxeRCcWBkao/confirm"
              target="_blank" rel="noopener" class="btn-primary"
              style="display:block; width:100%; text-align:center; padding:18px 32px;"
              data-ga-location="fv" data-ga-label="無料30分相談を予約する">無料30分相談を予約する</a>
         </div>
         <div style="display:flex; flex-direction:column; align-items:center; gap:4px; margin-top:24px;">
-          <p style="font-size:0.75rem; letter-spacing:0.09em; color:#8A7B60; margin:0; text-align:center; line-height:1.8; padding:0 12px;">公式LINEでは、限定メッセージも配信中。</p>
+          <p style="font-size:0.85rem; letter-spacing:0.09em; color:#8A7B60; margin:0; text-align:center; line-height:1.8; padding:0 12px;">公式LINEでは、限定メッセージも配信中。</p>
           <a href="https://lin.ee/JXQjw1f" target="_blank" rel="noopener" class="btn-secondary"
              style="display:block; width:100%; text-align:center; padding:15px 32px;"
              data-ga-location="fv" data-ga-label="公式LINEに登録する">公式LINEに登録する</a>
@@ -1122,8 +1165,8 @@
     <div class="ai-dialog-intro">
       <p>考えを整理するなら、AI。<br>
       気持ちを聴いてもらうなら、友人。</p>
-      <p>プロとの対話では、さらにその奥にある本音や、<br>
-      繰り返しているパターンまで一緒に見つめます。</p>
+      <p>プロとの対話では、<br class="sp-br">さらにその奥にある本音や、<br>
+      繰り返しているパターンまで<br class="sp-br">一緒に見つめます。</p>
     </div>
     <div class="ai-dialog-accordion" id="aiDialogAccordion">
       <button class="ai-dialog-toggle" aria-expanded="false" id="aiDialogToggle">
@@ -1301,7 +1344,7 @@
       </div>
       <p class="values-body">
         問いを投げ、感情を整理し、<br>
-        まだ言葉にならない感覚を一緒に見つけていく。<br><br>
+        まだ言葉にならない感覚を<br class="sp-br">一緒に見つけていく。<br><br>
         安心して本音を話せる空間を、<br>
         何より大切にしています。
       </p>
@@ -1453,10 +1496,10 @@
     <h2 class="section-title">まずは、無料30分相談から</h2>
     <div class="consult-box">
       <p class="lead">
-        まず一度話して、頭の中を整理したい方へ。<br><br>
+        まず一度話して、<br class="sp-br">頭の中を整理したい方へ。<br><br>
         お悩みやモヤモヤを一緒に掘り下げ、<br>
-        「何に困っているのか」を可視化します。<br><br>
-        相談後には「次にどうすればいいか」が<br>
+        「何に困っているのか」を<br class="sp-br">可視化します。<br><br>
+        相談後には<br class="sp-br">「次にどうすればいいか」が<br>
         明確になることを目指します。
       </p>
       <a href="https://app.spirinc.com/t/9g8PvP-1j2xig9Huw7uFf/as/3m2UXmmjzcyxeRCcWBkao/confirm"
