@@ -9,6 +9,12 @@ _memo.md
 # 画像の元ファイル（WebP版のみリポジトリに置く）
 assets/profile.png
 
+# 使わなくなったファイルの保管場所
+_archive/
+
+# 手元のメモ資料（サイトには不要）
+GA4イベント一覧.md
+
 # OS
 .DS_Store
 Thumbs.db
