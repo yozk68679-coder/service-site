@@ -459,6 +459,7 @@
     .final-cta .btn-secondary:hover {
       background: rgba(255,255,255,0.08);
     }
+    .final-cta .cta-group a { flex: 1; max-width: 260px; text-align: center; }
 
     /* ===== レスポンシブ ===== */
     @media (max-width: 639px) {
@@ -471,6 +472,9 @@
         padding: 12px 14px;
         border-radius: 2px;
       }
+      /* 縦積み時は width 指定がないと中身の長さで幅が変わり不揃いになる。
+         トップページと同じくFVのボタン幅(314px)に合わせる */
+      .final-cta .cta-group a { width: 100%; max-width: 314px; }
     }
     @media (min-width: 640px) {
       .cta-group { flex-direction: row; justify-content: center; }
