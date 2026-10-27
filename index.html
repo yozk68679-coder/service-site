@@ -68,7 +68,7 @@
         "priceRange": "5,000円〜60,000円",
         "hasOfferCatalog": {
           "@type": "OfferCatalog",
-          "name": "提供しているサービス",
+          "name": "提供サービス",
           "itemListElement": [
             {
               "@type": "Offer",
@@ -91,7 +91,7 @@
                 "@type": "Service",
                 "name": "コンパッションマインドトレーニング",
                 "serviceType": "コンパッションマインドトレーニング",
-                "description": "恐れや不安の感情に振り回されすぎないための、心の土台を育てる実践型トレーニング。1回90分・全12回・4〜5か月。"
+                "description": "恐れや不安の感情に振り回されにくい、心の土台を育てる実践型トレーニング。1回90分・全12回・4〜5か月。"
               }
             }
           ]
@@ -477,18 +477,25 @@
     /* ===== FOR WHOM ===== */
     .for-whom-list {
       list-style: none;
-      display: grid;
-      gap: 16px;
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 8px 36px;
+      background: var(--white);
+      border-top: 2px solid var(--gold);
+      box-shadow: 0 2px 16px rgba(60,56,54,0.06);
     }
     .for-whom-list li {
-      background: var(--white);
-      border-left: 2px solid var(--gold);
-      padding: 20px 28px;
+      padding: 20px 0;
+      text-align: center;
       font-size: 0.92rem;
       color: var(--text);
       letter-spacing: 0.04em;
       line-height: 1.7;
-      box-shadow: 0 2px 16px rgba(60,56,54,0.06);
+      border-bottom: 1px solid rgba(201,169,110,0.45);
+    }
+    .for-whom-list li:last-child { border-bottom: none; }
+    @media (max-width: 767px) {
+      .for-whom-list { padding: 4px 22px; }
     }
     .for-whom-lead {
       margin: -16px 0 40px;
@@ -1231,10 +1238,10 @@
     気づかないうちに疲れやストレスを<br>
     ため込んでしまうことはありませんか。</p>
     <ul class="for-whom-list">
-      <li>頭の中が整理できず、モヤモヤしている</li>
-      <li>気を遣いすぎて疲れてしまう</li>
+      <li>頭の中が整理できず、モヤモヤする</li>
+      <li>気を遣いすぎて疲れる</li>
       <li>本音がわからなくなっている</li>
-      <li>パートナーや上司・部下との関わり方を変えたい</li>
+      <li>パートナーや上司・部下との<br class="sp-br">関わり方を変えたい</li>
     </ul>
     <p class="for-whom-note">身体を整えるように、<br class="sp-br">心にも定期的なメンテナンスが必要です。</p>
   </div>
@@ -1269,7 +1276,7 @@
 <!-- サービス -->
 <section id="service" class="section">
   <div class="container">
-    <h2 class="section-title">提供しているサービス</h2>
+    <h2 class="section-title">提供サービス</h2>
     <div class="service-cards">
 
       <!-- コーチング -->
@@ -1319,7 +1326,7 @@
         <p class="service-card-label">SERVICE 02</p>
         <h3 class="service-card-title">コンパッションマインド<wbr>トレーニング</h3>
         <p>
-          恐れや不安の感情に振り回されすぎないための、心の土台を育てる実践型トレーニングです。
+          恐れや不安の感情に振り回されにくい、心の土台を育てる実践型トレーニングです。
         </p>
         <p>
           自由に話しながら進めるセッションよりも、まずは知識を学び、実践しながら身につけていく方法が合う方におすすめしています。<br><br>
