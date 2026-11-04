@@ -324,6 +324,7 @@
     }
     .type-card p { font-size: clamp(0.6rem, 1.05vw, 0.8rem); color: var(--text-sub); line-height: 1.85; }
     .type-note { margin-top: 16px; font-size: clamp(0.58rem, 1vw, 0.75rem); color: var(--accent-txt); }
+    .type-note + .type-note { margin-top: 4px; }
 
     /* ---- Slide 3: House ---- */
     .s3-wrap { width: 100%; }
@@ -549,6 +550,8 @@
       /* 注記・タグ */
       .type-note,
       .compare-note { font-size: 0.85rem; line-height: 1.9; }
+      /* 2文目：段落の区切りとして少し空ける */
+      .type-note + .type-note { margin-top: 12px; }
       .compare-tag { font-size: 0.82rem; }
 
       /* ボタン：文字を大きくする分パディングと字間を詰めて折り返しを防ぐ */
@@ -614,6 +617,7 @@
       </div>
     </div>
     <p class="type-note">どの状態かによって、コーチングとCMTの<br class="sp-br">どちらが合うかが変わってきます。</p>
+    <p class="type-note">30分無料相談では、お話を伺いながら<br class="sp-br">どちらが適しているかを一緒に考えます。</p>
   </div>
 
   <!-- 3: House -->
